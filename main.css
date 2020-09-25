@@ -9,7 +9,6 @@ html,body{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 85vh 15vh;
-    margin-bottom: -10px;
 }
 .header-img{
     grid-column: 1/-1;
@@ -185,6 +184,7 @@ i{
         display: none;
     }
 }
+/* THIS IS COMPUTER SCREEN*/
 @media only screen and (min-width: 589px){
     .mobile-nav{
         display: none;
@@ -249,4 +249,244 @@ li a{
 #header-container > header > div.logo > i{
     display: none;
 }
+
+ /*   // Origional Options (after click original btn) //     */
+
+ .originals{
+   
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 50px;
+    padding: 0 5% 70px;
+    background-color: rgb(6, 2, 39);
+    color: white;
+    grid-gap: 5px;
+}
+
+  /*   // Print Options (after click Prints btn) //     */
+    .prints{
+   
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 50px;
+    padding: 0 5% 70px;
+    background-color: rgb(6, 2, 39);
+    color: white;
+    grid-gap: 5px;
+}
+
+
+ 
+
+
+
+@media only screen and (min-width:665px) {
+
+
+    .originals, .prints{
+        height: 80vh;
+    }
+
+    /*   // BELOW ARE ALL THE CONTENTS //     */
+  /*   // They are set in a grid they all share on their turn //     */
+
+
+
+
+ .container{
+   
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 80px repeat(auto-fill, 1fr);
+    grid-row: 80px 1fr;
+    grid-row-gap: 50px;
+    padding: 0 5% 70px;
+    background-color: rgb(6, 2, 39);
+    color: white;
+    
+}
+.container.originalAnimals{
+    height: 80vh;
+}
+.container h3{
+    text-align: center;
+    font-size: 30px;
+    grid-column: 1/-1;
+} 
+.imgONE{ grid-column: 1; grid-row: 2; display: contents;}
+.imgTWO{ grid-column: 2; grid-row: 3; display: contents;}
+.imgTHREE{ grid-column: 1; grid-row: 4; display: contents;}
+.imgFOUR{ grid-column: 2; grid-row: 5; display: contents;}
+.imgFIVE{ grid-column: 1; grid-row: 6; display: contents;}
+.imgSIX{ grid-column: 2; grid-row: 7; display: contents;}
+.imgSEVEN{ grid-column: 1; grid-row: 8; display: contents;}
+.imgEIGHT{ grid-column: 2; grid-row: 9; display: contents;}
+.imgNINE{ grid-column: 1; grid-row: 10; display: contents;}
+.imgTEN{ grid-column: 2; grid-row: 11; display: contents;}
+.imgELEVEN{ grid-column: 1; grid-row: 12; display: contents;}
+.imgTWELEVE{ grid-column: 2; grid-row: 13; display: contents;}
+.imgTHIRTEEN{ grid-column: 1; grid-row: 14; display: contents;}
+.imgFOURTEEN{ grid-column: 2; grid-row: 15; display: contents;}
+.imgFIVTEEN{ grid-column: 1; grid-row: 16; display: contents;}
+
+
+
+/* body > div.originalFlowers.container > div.imgONE > img */
+
+.container p{
+    text-align: center;
+}
+.title{
+    font-size: 30px;
+}
+.container p:last-child{
+    margin-bottom: 300px;
+}
+ 
+
+
+}
+
+
+
+} 
+/*  THIS IS LAND SCAPE*/
+@media screen
+    and (max-height: 600px){
+        #header-container{
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: 75vh 25vh;
+    }
+
+
+    .logo{
+        display: inline-block;
+        text-align: center;
+        min-width: 20%;
+        margin-left: 10px;
+    } 
+    .bethOwen{
+        font-size: 20px;
+    }
+    
+    
+    nav{
+       display: inline-block;
+       text-align: center;
+        flex-grow: 2;
+        font-size: 13px;
+    } 
+
+    ul{
+        list-style-type: none;
+        transform: translateY(10px);
+    }
+    
+    li a{
+        text-decoration: none;
+        color: inherit;
+        padding: 0 20%;
+       
+    }
+    .homeBTN{
+        transform: translateX(-30px);
+    }
+    .printsBTN{
+        transform: translateX(50px);
+    }
+    .contact{
+        display: inline-block;
+        text-align: center;
+        width: 20px;
+        flex-grow: 1;
+        margin-top: 25px;
+
+    }
+
+
+      /*   // Origional Options (after click original btn) //     */
+
+.originals{
+    
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row: 80px 1fr;
+    grid-gap: 5px;
+    padding: 0 10% 70px;
+    background-color: rgb(6, 2, 39);
+    color: white;
+}
+.originals h3{
+    grid-column: 1/-1;
+    text-align: center;
+    font-size: 30px;
+}
+.originals p{
+    text-align: center;
+    font-size: 20px;
+}
+.originals img{
+    max-width: 100%;
+}
+
+  /*   // prints Options (after click original btn) //     */
+
+  .prints{
+    
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row: 80px 1fr;
+    grid-gap: 5px;
+    padding: 0 10% 70px;
+    background-color: rgb(6, 2, 39);
+    color: white;
+}
+.prints h3{
+    grid-column: 1/-1;
+    text-align: center;
+    font-size: 30px;
+}
+.prints p{
+    text-align: center;
+    font-size: 20px;
+}
+.prints img{
+    max-width: 100%;
+}
+
+
+
+
+.container{
+   
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 80px repeat(auto-fill, 1fr);
+    grid-row: 80px 1fr;
+    grid-row-gap: 50px;
+    padding: 0 5% 70px;
+    background-color: rgb(6, 2, 39);
+    color: white;
+    
+}
+.container.originalAnimals{
+    height: 80vh;
+}
+.container h3{
+    text-align: center;
+    font-size: 30px;
+    grid-column: 1/-1;
+} 
+.imgONE{ grid-column: 1; grid-row: 2; display: contents;}
+.imgTWO{ grid-column: 2; grid-row: 3; display: contents;}
+.imgTHREE{ grid-column: 1; grid-row: 4; display: contents;}
+.imgFOUR{ grid-column: 2; grid-row: 5; display: contents;}
+.imgFIVE{ grid-column: 1; grid-row: 6; display: contents;}
+.imgSIX{ grid-column: 2; grid-row: 7; display: contents;}
+.imgSEVEN{ grid-column: 1; grid-row: 8; display: contents;}
+.imgEIGHT{ grid-column: 2; grid-row: 9; display: contents;}
+.imgNINE{ grid-column: 1; grid-row: 10; display: contents;}
+.imgTEN{ grid-column: 2; grid-row: 11; display: contents;}
+.imgELEVEN{ grid-column: 1; grid-row: 12; display: contents;}
+.imgTWELEVE{ grid-column: 2; grid-row: 13; display: contents;}
+.imgTHIRTEEN{ grid-column: 1; grid-row: 14; display: contents;}
+.imgFOURTEEN{ grid-column: 2; grid-row: 15; display: contents;}
+.imgFIVTEEN{ grid-column: 1; grid-row: 16; display: contents;}
+
+
 }
