@@ -7,11 +7,12 @@ html,body{
 
 #header-container{
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr;
     grid-template-rows: 85vh 15vh;
+    margin-bottom: -10px;
 }
 .header-img{
-    grid-column: 1/4;
+    grid-column: 1/-1;
     background-size: cover;
     background-position: bottom center;
 }
@@ -19,7 +20,6 @@ header{
     grid-column: 1/-1;
     color: tan;
     background-color: rgb(6, 2, 39);
-
 }
 .logo{
     display: block;
@@ -33,10 +33,18 @@ header{
     margin-top: 0;
     
 }
+.mobile-nav{
+    color: tan;
+    background-color: rgb(6, 2, 39);
+    position: relative;
+    z-index: -1;
+}
 nav{
    display: block;
    text-align: center;
-}
+   padding-top: 5px;
+   font-size: 20px;
+} 
 ul{
     list-style-type: none;
     padding-inline-start: 0;
@@ -55,10 +63,12 @@ li a{
 .contact{
     display: block;
     text-align: center;
+    padding-bottom: 20px;
+    margin-bottom: 0;
 }
 i{
     position: absolute;
-    right: 70px;
+    right: 7%;
     margin-top: 30px;
     display: inline-block;
     color: tan;
@@ -71,7 +81,7 @@ i{
 
 .spacer{
     width: 100%;
-    height: 85vh;
+    height: 73vh;
     background-color: rgb(6, 2, 39);
 }
 
@@ -163,4 +173,78 @@ i{
 
 .hidden {
     display: none;
+}
+
+
+@media only screen and (max-width: 588px){
+    .hideOnMobile{
+        display: none;
+    }
+}
+@media only screen and (min-width: 589px){
+    .mobile-nav{
+        display: none;
+    }
+    .spacer{
+        height: 92vh;
+    }
+          /*   //   Opening Section    //     */
+
+#header-container{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 89vh 11vh;
+}
+.header-img{
+    background-position: bottom center;
+}
+header{
+    grid-column: 1/-1;
+    display: flex;
+    color: tan;
+    background-color: rgb(6, 2, 39);
+    /* text-align: center; */
+    /* max-width: 1300px; */
+    margin: 0;
+}
+.logo{
+    display: inline-block;
+    text-align: center;
+    min-width: 20%;
+    margin-left: 10px;
+}
+.bethOwen{
+    flex-grow: 1;
+}
+
+
+nav{
+   display: inline-block;
+   text-align: center;
+    flex-grow: 2;
+} 
+ul{
+    list-style-type: none;
+    
+}
+li{
+   
+}
+li a{
+    text-decoration: none;
+    color: inherit;
+    padding: 0 20%;
+   
+
+}
+.contact{
+    display: inline-block;
+    text-align: center;
+    width: 20%;
+    flex-grow: 1;
+    margin-top: 29px;
+}
+#header-container > header > div.logo > i{
+    display: none;
+}
 }
