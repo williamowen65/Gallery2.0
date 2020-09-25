@@ -11,7 +11,7 @@
     <div id="header-container">    <!-- 2 grid items -->
         <div class="header-img" style="background-image: url(imgs/daffodil.jpg);"></div>
         <header>
-            <div class="logo">
+            <div class="logo" id="header">
                     <h1 class="bethOwen">Beth Owen</h1>
                     <!-- independently placed -->
                     <i class="fas fa-bars"></i>
@@ -25,19 +25,19 @@
                         <li class="printsBTN"><a href="#header">Prints</a></li>            
                     </ul>
             </nav>
-            <div class="contact hideOnMobile">Contact</div>
+            <div class="contact hideOnMobile"><a data-email="bluekayak123@yahoo.com" href="mailto:bluekayak123@yahoo.com">Contact</a></div> <!-- try to copy to clipboard (JS?) -->
         </header>
     </div>
 
     <div class="mobile-nav">
-        <nav class="">
+        <nav>
             <ul>
                 <li class="homeBTN"><a href="#header-container">Home</a></li>
                 <li class="originalsBTN"><a href="#header">Originals</a></li>        
                 <li class="printsBTN"><a href="#header">Prints</a></li>            
             </ul>
         </nav>
-        <div class="contact">Contact</div>
+        <div class="contact"><a data-email="bluekayak123@yahoo.com" href="mailto:bluekayak123@yahoo.com">Contact</a></div><!-- try to copy to clipboard (JS?) -->
     </div>
         
     
@@ -47,17 +47,17 @@
 
 
     <!-- clicks origionals and these appear (GRID 4 items) -->
-    <div class="originals hidden">
+    <div class="originals">
         <h3>Original Paintings</h3>
-        <div class="poppies">
+        <div class="flowers-O">
             <img src="imgs/Poppies.jpg" alt="Flowers">
             <p>Flowers</p>
         </div>
-        <div class="animals-people">
+        <div class="animals-people-O">
             <img src="imgs/Lumpy-and-Big-Talk.jpg" alt="animals-people">
             <p>Animals & People</p>
         </div>
-        <div class="places-things">
+        <div class="places-things-O">
             <img src="imgs/Old-Truck.jpg" alt="places and things">
             <p>Places & Things</p>
         </div>
@@ -68,15 +68,15 @@
     <!-- clicks Prints and these appear (GRID 4 items) -->
     <div class="prints hidden">
         <h3>Prints</h3>
-        <div class="poppies">
+        <div class="flowers-P">
             <img src="imgs/Poppies.jpg" alt="Flowers">
             <p>Flowers</p>
         </div>
-        <div class="animals-people">
+        <div class="animals-people-P">
             <img src="imgs/Lumpy-and-Big-Talk.jpg" alt="animals-people">
             <p>Animals & People</p>
         </div>
-        <div class="places-things">
+        <div class="places-things-P">
             <img src="imgs/Old-Truck.jpg" alt="places and things">
             <p>Places & Things</p>
         </div>
@@ -258,7 +258,6 @@
 
 
 
-
-<script src="scripts.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
