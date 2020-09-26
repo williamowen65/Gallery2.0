@@ -3,6 +3,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="computer.css">
+    <link rel="stylesheet" href="landscape.css">
     <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     <title>Beth Owen | Watercolor</title>
@@ -14,7 +16,7 @@
             <div class="logo" id="header">
                     <h1 class="bethOwen">Beth Owen</h1>
                     <!-- independently placed -->
-                    <i class="fas fa-bars"></i>
+                   <a href="#header"><i class="fas fa-bars hamburger"></i></a> 
                     <p class="watercolor">Watercolor Artist</p>
                      
             </div>
@@ -32,9 +34,9 @@
     <div class="mobile-nav hidden">
         <nav>
             <ul>
-                <li class="homeBTN"><a href="#header-container">Home</a></li>
-                <li class="originalsBTN"><a href="#header">Originals</a></li>        
-                <li class="printsBTN"><a href="#header">Prints</a></li>            
+                <li class="homeBTNDD"><a href="#header-container">Home</a></li>
+                <li class="originalsBTNDD"><a href="#header">Originals</a></li>        
+                <li class="printsBTNDD"><a href="#header">Prints</a></li>            
             </ul>
         </nav>
         <div class="contact"><a data-email="bluekayak123@yahoo.com" href="mailto:bluekayak123@yahoo.com">Contact</a></div><!-- try to copy to clipboard (JS?) -->
@@ -90,19 +92,19 @@
 
     <div class="imgONE">
         <img src="imgs/White-Iris.jpg" alt="">        
-        <p class="title">White Iris <br> 14" x 21"</p>
+        <span class="odd"><p class="title">White Iris </p><p> 14" x 21"</p></span>
     </div>
     <div class="imgTWO">
-        <p class="title">Iris 2 <br> 11" x 14"</p>
         <img src="imgs/Iris2-cropped.jpg" alt=""> 
+        <span class="even"><p class="title">Iris 2 </p><p> 11" x 14"</p></span>
     </div>           
     <div class="imgTHREE">
         <img src="imgs/Iris-3-cropped.jpg" alt="">    
-        <p class="title">Iris 3 <br> 11" x 14"</p>
+       <span class="odd"> <p class="title">Iris 3 </p><p> 11" x 14"</p></span>
     </div>
     <div class="imgFOUR">
-        <p class="title">Poppies<br> 16" x 22"</p>
         <img src="imgs/Poppies.jpg" alt=""> 
+       <span class="even"> <p class="title">Poppies</p><p> 16" x 22"</p></span>
     </div>    
 </div>
 
@@ -117,7 +119,7 @@
     <h3>Places & Things</h3>
     <div class="imgONE">
         <img src="imgs/Prairie-Storm.jpg" alt="">
-        <p class="title">Prairie Storm <br> 11" x 14"</p> 
+        <span class="odd"><p class="title">Prairie Storm </p><p> 11" x 14"</p> </span>
     </div> 
 </div>
 
@@ -129,34 +131,34 @@
 
     <div class="imgONE">
         <img src="imgs/daffodil.jpg" alt="">   
-        <p class="title">Daffodil</p><p>11" x 14"</p> 
+        <span class="odd"><p class="title">Daffodil</p><p>11" x 14"</p> </span>
     </div>
    
 
     <div class="imgTWO">
-        <p class="title">White Iris </p><p> 11" x 14"</p> <p>&</p> <p> 16" x 20"</p>
         <img src="imgs/White-Iris.jpg" alt="">
+        <span class="even"><p class="title">White Iris </p><p> 11" x 14"</p> <p>&</p> <p> 16" x 20"</p></span>
     </div>
 
     <div class="imgTHREE">
         <img src="imgs/Iris.jpg" alt="">      
-        <p class="title">Iris </p><p> 11" x 14"</p>
+        <span class="odd"><p class="title">Iris </p><p> 11" x 14"</p></span>
     </div>
 
 
     <div class="imgFOUR">
-        <p class="title">Iris 2 </p><p> 11" x 14"</p>
         <img src="imgs/Iris2-cropped.jpg" alt="">
+        <span class="even"><p class="title">Iris 2 </p><p> 11" x 14"</p></span>
     </div>
 
-    <div class="imgFOUR">
+    <div class="imgFIVE">
         <img src="imgs/Iris-3-cropped.jpg" alt="">
-        <p class="title">Iris 3 </p><p> 11" x 14"</p>
+        <span class="odd"><p class="title">Iris 3 </p><p> 11" x 14"</p></span>
     </div>
 
-    <div class="imgFOUR">
-        <p class="title">Poppies </p><p> 16" x 20"</p>
+    <div class="imgSIX">
         <img src="imgs/Poppies.jpg" alt="">
+        <span class="even"><p class="title">Poppies </p><p> 16" x 20"</p></span>
     </div>
 
 </div>
@@ -166,31 +168,30 @@
     <h3>Animals & People</h3>
     <div class="imgONE">
         <img src="imgs/blue.crab.jpg" alt="">    
-        <p class="title">Blue Crab </p><p> 11" x 14"</p>
+        <span class="odd"><p class="title">Blue Crab </p><p> 11" x 14"</p></span>
     </div>
 
     <div class="imgTWO">   
-        <p class="title">Red rock Crab </p><p> 11" x 14"</    </div>
-
-                    <img src="imgs/Red-Rock-Crab.jpg" alt="">
+        <img src="imgs/Red-Rock-Crab.jpg" alt="">
+        <span class="even"><p class="title">Red rock Crab </p><p> 11" x 14"</p>   </div></span>
     <div class="imgTHREE">
         <img src="imgs/hummingbird.jpg" alt="">   
-        <p class="title">Hummingbird </p><p> ?" x ?"</p>
+        <span class="odd"><p class="title">Hummingbird </p><p> ?" x ?"</p></span>
     </div>
 
     <div class="imgFOUR">  
-        <p class="title">Kayak Surfing </p><p> 11" x 14"</    </div>
-
-                    <img src="imgs/Kayak.Surfing.jpg" alt=""> 
+        <img src="imgs/Kayak.Surfing.jpg" alt=""> 
+        <span class="even"><p class="title">Kayak Surfing </p><p> 11" x 14"    </div></span>
     <div class="imgFIVE">
         <img src="imgs/Lumpy-and-Big-Talk.jpg" alt="">    
-        <p class="title">Lump and Big Talk </p><p> ?" x ?"</p>
+        <span class="odd"><p class="title">Lump and Big Talk </p><p> ?" x ?"</p></span>
     </div>
 
     <div class="imgSIX">
-        <p class="title">Making Waves at Herron Island </p><p> 11" x 14"</    </div>
-
-                    <img src="imgs/Making-Waves-at-Herron-Island.jpg" alt="">  
+        <img src="imgs/Making-Waves-at-Herron-Island.jpg" alt=""> 
+        <span class="even"><p class="title">Making Waves at Herron Island </p><p> 11" x 14"</p></div></span>
+         
+    </div>
 </div>
 
 <!-- Prints Places & Things Content -->
@@ -198,57 +199,57 @@
     <h3>Places & Things </h3>
     <div class="imgONE">
         <img src="imgs/chihuly-glass.jpg" alt="">
-        <p class="title">Chihuly Glass </p><p> ?" x ?"</p>
+        <span class="odd"><p class="title">Chihuly Glass </p><p> ?" x ?"</p></span>
     </div>
 
     <div class="imgTWO">
-        <p class="title">Union Station </p><p> ?" x ?"</p>
-        <img src="imgs/Union-Station.Shadows.jpg" alt="">
+        <img src="imgs/Union-Station.Shadows.jpg" alt="">    
+        <span class="even"><p class="title">Union Station </p><p> ?" x ?"</p></span>
     </div>
 
     <div class="imgTHREE">
         <img src="imgs/getting.ready.for.the.rush.jpg" alt="">
-        <p class="title">Getting Ready for the Rush</p><p> ?" x ?"</p>  
+        <span class="odd"><p class="title">Getting Ready for the Rush</p><p> ?" x ?"</p>  </span>
     </div>
 
     <div class="imgFOUR">
-        <p class="title">Old Cars</p><p> 11" x 14"</p>  
-        <img src="imgs/old.cars.JPG" alt="">
+        <img src="imgs/old.cars.JPG" alt="">    
+        <span class="even"><p class="title">Old Cars</p><p> 11" x 14"</p>  </span>
     </div>
 
     <div class="imgFIVE">
         <img src="imgs/Made-It-To-ShiShi.jpg" alt="">
-        <p class="title">Made is to Shi Shi</p><p> 11" x 14"</p>  
+        <span class="odd"><p class="title">Made is to Shi Shi</p><p> 11" x 14"</p>  </span>
     </div>
 
     <div class="imgSIX">
-        <p class="title">Old Truck</p><p> 11" x 14"</p>  
-        <img src="imgs/Old-Truck.jpg" alt="">
+        <img src="imgs/Old-Truck.jpg" alt="">    
+        <span class="even"><p class="title">Old Truck</p><p> 11" x 14"</p>  </span>
     </div>
 
     <div class="imgSEVEN">
         <img src="imgs/Patos-Island-Lighthouse.jpg" alt="">
-        <p class="title">Patos Island Lighthouse</p> <p> ?" x ?"</p>  
+        <span class="odd"><p class="title">Patos Island Lighthouse</p> <p> ?" x ?"</p>  </span>
     </div>
 
     <div class="imgEIGHT">
-        <p class="title">Pikes Place Market </p><p> ?" x ?"</p>
-        <img src="imgs/Pike-Place-Market.jpg" alt="">
+        <img src="imgs/Pike-Place-Market.jpg" alt="">    
+        <span class="even"><p class="title">Pikes Place Market </p><p> ?" x ?"</p></span>
     </div>
 
     <div class="imgNINE">
         <img src="imgs/Prairie-Spring.jpg" alt="">
-        <p class="title">Prairie Spring </p><p> 11" x 14"</p>  
+        <span class="odd"><p class="title">Prairie Spring </p><p> 11" x 14"</p>  </span>
     </div>
     
     <div class="imgTEN">
-        <p class="title">Praire Storm</p><p> 11" x 14"</p>  
-        <img src="imgs/Prairie-Storm.jpg" alt="">
+        <img src="imgs/Prairie-Storm.jpg" alt="">    
+        <span class="even"><p class="title">Praire Storm</p><p> 11" x 14"</p>  </span>
     </div>
 
     <div class="imgELEVEN">
         <img src="imgs/Prairie-Walk.jpg" alt="">
-        <p class="title">Prairie Walk</p><p> 11" x 14"</p>  
+        <span class="odd"><p class="title">Prairie Walk</p><p> 11" x 14"</p>  </span>
     </div>
 
 </div>
