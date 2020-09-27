@@ -122,6 +122,9 @@ i{
 .originals img{
     max-width: 100%;
 }
+.originals img:active{
+    filter: grayscale(1);
+}
 
   /*   // Print Options (after click Prints btn) //     */
   .prints{
@@ -150,6 +153,9 @@ i{
 }
 .prints img{
     max-width: 100%;
+}
+.prints img:active{
+    filter: grayscale(1);
 }
 
 
@@ -222,12 +228,12 @@ i{
 @keyframes riseAndFade{
     0%{
         transform: translateY(30px);
-        filter: grayscale(100%);
+     
     }
    
     100%{
         transform: translateY(0px);
-        filter: grayscale(0%);
+        
 
     }
 }
