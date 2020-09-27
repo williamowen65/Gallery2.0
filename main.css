@@ -227,9 +227,7 @@ i{
         transform: translateY(30px);
         filter: grayscale(100%);
     }
-    50%{
-        /* filter: grayscale(75%);        
-    } */
+   
     100%{
         opacity: 1;
         transform: translateY(0px);
