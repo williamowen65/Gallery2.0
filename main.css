@@ -212,24 +212,20 @@ i{
 /* for the title */
 @keyframes titleRise{
     0%{
-        opacity: 0;
         transform: translateY(50px);
     }
     100%{
-        opacity: 1;
         transform: translateY(0px);
     }
 }
 /* for the category btns*/
 @keyframes riseAndFade{
     0%{
-        opacity: 0;
         transform: translateY(30px);
         filter: grayscale(100%);
     }
    
     100%{
-        opacity: 1;
         transform: translateY(0px);
         filter: grayscale(0%);
 
