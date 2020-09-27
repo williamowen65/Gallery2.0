@@ -58,7 +58,10 @@ hamburger.addEventListener('click', () => {
     const result = [...hiddenElements].filter(element => !element.classList.contains('hidden'));
 
 
-       if(result[0]){
+        if(result[0] && !mobileNav.classList.contains('hidden')){
+            spacer.classList.add('hidden');
+            mobileNav.classList.add('hidden');
+        }else if(result[0]){
             spacer.classList.add('hidden');
             mobileNav.classList.remove('hidden');
             // result[0].classList.remove('hidden');
