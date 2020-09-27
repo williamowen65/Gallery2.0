@@ -25,42 +25,51 @@ const hamburger = document.querySelector('.hamburger');
 const mobileNav = document.querySelector('.mobile-nav');
 const hiddenElements = document.querySelectorAll('.hide');
 
-console.log(hiddenElements);
+
 
 hamburger.addEventListener('click', () => {
  
+    // originals.classList.add('hidden');
+    // prints.classList.add('hidden');
+    // flowersObtn.classList.add('hidden');
+    // animalsPeopleObtn.classList.add('hidden');
+    // placesThingsObtn.classList.add('hidden');
+    // flowersPbtn.classList.add('hidden');
+    // animalsPeoplePbtn.classList.add('hidden');
+    // placesThingsPbtn.classList.add('hidden');
+    // originalFlowers.classList.add('hidden');
+    // originalAnimals.classList.add('hidden');
+    // originalPlaces.classList.add('hidden');
+    // printFlowers.classList.add('hidden');
+    // printAnimals.classList.add('hidden');
+    // printPlaces.classList.add('hidden');
+   
+    // if(!spacer.classList.contains('hidden')) {
+    //     spacer.classList.add('hidden');
+    //     mobileNav.classList.add('hidden');
+    // } else {
+    //     spacer.classList.remove('hidden');
+    //     mobileNav.classList.remove('hidden');
+    // }
 
 
-    if(!spacer.classList.contains('hidden')){
-        spacer.classList.add('hidden');
-        mobileNav.classList.add('hidden');
-    } else {
+
+
+    const result = [...hiddenElements].filter(element => !element.classList.contains('hidden'));
+
+
+       if(result[0]){
+            spacer.classList.add('hidden');
+            mobileNav.classList.remove('hidden');
+            // result[0].classList.remove('hidden');
+       }else if(!result[0]){
         spacer.classList.remove('hidden');
         mobileNav.classList.remove('hidden');
-    }
+       } 
+   
 
-    hiddenElements.forEach(item => {
-        if (item.classList.contains('hide') && !item.classList.contains('hidden')){
-            console.log(item);
-        } else {
-            originals.classList.add('hidden');
-            prints.classList.add('hidden');
-            flowersObtn.classList.add('hidden');
-            animalsPeopleObtn.classList.add('hidden');
-            placesThingsObtn.classList.add('hidden');
-            flowersPbtn.classList.add('hidden');
-            animalsPeoplePbtn.classList.add('hidden');
-            placesThingsPbtn.classList.add('hidden');
-            originalFlowers.classList.add('hidden');
-            originalAnimals.classList.add('hidden');
-            originalPlaces.classList.add('hidden');
-            printFlowers.classList.add('hidden');
-            printAnimals.classList.add('hidden');
-            printPlaces.classList.add('hidden');
-           
-        }
-        
-    });
+ 
+       
 });
 
 
