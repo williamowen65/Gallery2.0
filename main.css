@@ -104,11 +104,16 @@ i{
     padding: 0 5% 70px;
     background-color: rgb(6, 2, 39);
     color: white;
+    height: 78vh;
+    animation: riseAndFade 1.5s ease-in-out forwards;
+
 }
 .originals h3{
     grid-column: 1/-1;
     text-align: center;
     font-size: 30px;
+    animation: titleRise 2s ease-out forwards;
+    align-self: flex-end;
 }
 .originals p{
     text-align: center;
@@ -127,12 +132,18 @@ i{
     padding: 0 5% 70px;
     background-color: rgb(6, 2, 39);
     color: white;
+    animation: riseAndFade 1.5s ease-in-out forwards;
+    height: 78vh;
 }
 .prints h3{
     grid-column: 1/-1;
     text-align: center;
     font-size: 30px;
+    animation: titleRise 2s ease-out forwards;
+    align-self: flex-end;
 }
+
+
 .prints p{
     text-align: center;
     font-size: 20px;
@@ -182,11 +193,50 @@ i{
 }
 
 
+.moreComingSoon{
+    height: 78vh;
+}
+.container.moreComingSoon h3{
+    grid-column: 1;
+}
+.container.moreComingSoon h3:nth-child(2){
+    grid-row: 2;
+    grid-column: 2/4;
+    min-width: 200px;
+}
+.moveDown{
+    transform: translateY(100px);
+}
 
 
+/* for the title */
+@keyframes titleRise{
+    0%{
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+/* for the category btns*/
+@keyframes riseAndFade{
+    0%{
+        opacity: 0;
+        transform: translateY(30px);
+        filter: grayscale(100%);
+    }
+    50%{
+        /* filter: grayscale(75%);        
+    } */
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+        filter: grayscale(0%);
 
-
-
+    }
+}
 
 
 
