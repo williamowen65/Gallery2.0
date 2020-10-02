@@ -24,7 +24,7 @@ const printPlaces = document.querySelector('.printPlaces');
 const hamburger = document.querySelector('.hamburger');
 const mobileNav = document.querySelector('.mobile-nav');
 const hiddenElements = document.querySelectorAll('.hide');
-
+const footer = document.querySelector('footer');
 
 
 hamburger.addEventListener('click', () => {
@@ -52,26 +52,31 @@ hamburger.addEventListener('click', () => {
     //     mobileNav.classList.remove('hidden');
     // }
 
-
+   
 
 
     const result = [...hiddenElements].filter(element => !element.classList.contains('hidden'));
 
+        console.log(result);
 
         if(result[0] && !mobileNav.classList.contains('hidden')){
             spacer.classList.add('hidden');
-            mobileNav.classList.add('hidden');
+            mobileNav.classList.add('hidden');   
+            // footer.classList.add('hidden');
+        
         }else if(result[0]){
             spacer.classList.add('hidden');
             mobileNav.classList.remove('hidden');
             // result[0].classList.remove('hidden');
+
        }else if(!result[0]){
         spacer.classList.remove('hidden');
         mobileNav.classList.remove('hidden');
-       } 
+        footer.classList.remove('hidden');
+       }
    
 
- 
+       
        
 });
 
@@ -94,6 +99,12 @@ homeBTNDD.addEventListener('click', () => {
     spacer.classList.add('hidden');
     mobileNav.classList.add('hidden');
     
+        if(footer.classList[0] === 'hidden'){
+            footer.classList.remove('hidden');
+        } else {
+            footer.classList.add('hidden');        
+        }
+
 });
 
 originalsBTNDD.addEventListener('click', () => {
@@ -156,7 +167,15 @@ homeBTN.addEventListener('click', () => {
     printPlaces.classList.add('hidden');
     spacer.classList.add('hidden');
     mobileNav.classList.add('hidden');
+    footer.classList.add('hidden');
+
     
+    // const result = [...hiddenElements].filter(element => !element.classList.contains('hidden'));
+    // if(!result[0] && footer.classList[0] === 'hidden'){
+    // }else if(result[0]){
+    //     footer.classList.add('hidden');        
+    // } 
+
 });
 
 originalsBTN.addEventListener('click', () => {
@@ -177,6 +196,11 @@ originalsBTN.addEventListener('click', () => {
     flowersObtn.classList.remove('hidden');
     animalsPeopleObtn.classList.remove('hidden');
     placesThingsObtn.classList.remove('hidden');
+
+    if(footer.classList[0] === 'hidden'){
+        footer.classList.remove('hidden');
+    }
+
 });
 
 printsBTN.addEventListener('click', () => {
@@ -197,6 +221,10 @@ printsBTN.addEventListener('click', () => {
     flowersPbtn.classList.remove('hidden');
     animalsPeoplePbtn.classList.remove('hidden');
     placesThingsPbtn.classList.remove('hidden');
+
+    if(footer.classList[0] === 'hidden'){
+        footer.classList.remove('hidden');
+    }
 
 });
 

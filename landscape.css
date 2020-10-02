@@ -65,7 +65,7 @@ color: inherit;
 
 text-align: center;
 padding-bottom: 15px;
-
+padding-top: 32px;
 margin-bottom: 0;
 transform: translateY(-17px);
 }
@@ -105,6 +105,7 @@ background-color: rgb(6, 2, 39);
     padding: 0 5% 70px;
     background-color: rgb(6, 2, 39);
     color: white;
+
 }
 .originals h3{
 grid-column: 1/-1;
@@ -203,6 +204,15 @@ max-width: 100%;
         left: -100%;
     }
 }
+
+
+
+
+footer p{
+    display: inline-block;
+}
+
+
 
 @media only screen and (min-width: 860px){
     

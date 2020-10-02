@@ -50,7 +50,7 @@
 
     <!-- clicks origionals and these appear (GRID 4 items) -->
     <div class="originals hidden hide">
-        <h3>Original Paintings</h3>
+        <h3><u>Original Paintings</u></h3>
         <div class="flowers-O">
              <a href="#header"><img src="imgs/Poppies.jpg" alt="Flowers"></a>
             <p>Flowers</p>
@@ -69,7 +69,7 @@
 
     <!-- clicks Prints and these appear (GRID 4 items) -->
     <div class="prints hidden hide">
-        <h3>Prints</h3>
+        <h3><u>Prints</u></h3>
         <div class="flowers-P">
              <a href="#header"><img src="imgs/Poppies.jpg" alt="Flowers"></a>
             <p>Flowers</p>
@@ -88,16 +88,16 @@
 <!-- IMAGE CONTAINERS (Originals)-->
 <!-- Original Flowers Content -->
 <div class="originalFlowers container hidden hide">
-    <h3>Original Flowers</h3>
+    <h3><u>Original Flowers</u></h3>
 
-    <div class="imgONE">
+    <!-- <div class="imgONE">
         <img src="imgs/White-Iris.jpg" alt="">        
         <span class="odd"><p class="title">White Iris </p><p> 14" x 21"</p></span>
     </div>
     <div class="imgTWO">
         <img src="imgs/Iris2-cropped.jpg" alt=""> 
         <span class="even"><p class="title">Iris 2 </p><p> 11" x 14"</p></span>
-    </div>           
+    </div>            -->
     <div class="imgTHREE">
         <img src="imgs/Iris-3-cropped.jpg" alt="">    
        <span class="odd"> <p class="title">Iris 3 </p><p> 11" x 14"</p></span>
@@ -110,13 +110,13 @@
 
 <!-- Original Animals & People Content -->
 <div class="originalAnimals container hidden hide moreComingSoon">
-    <h3>Animals & People</h3>
+    <h3><u>Animals & People</u></h3>
     <h3>More Coming Soon</h3>
 </div>
 
 <!-- Original Places & Things Content -->
 <div class="originalPlaces container hidden hide moveDown">
-    <h3>Places & Things</h3>
+    <h3><u>Places & Things</u></h3>
     <div class="imgONE">
         <img src="imgs/Prairie-Storm.jpg" alt="">
         <span class="odd"><p class="title">Prairie Storm </p><p> 11" x 14"</p> </span>
@@ -127,7 +127,7 @@
 <!-- IMAGE CONTAINERS (Prints)-->
 <!-- Prints Flowers Content -->
 <div class="printFlowers container hidden hide">
-    <h3>Flower Prints</h3>
+    <h3><u>Flower Prints</u></h3>
 
     <div class="imgONE">
         <img src="imgs/daffodil.jpg" alt="">   
@@ -165,7 +165,7 @@
 
 <!-- Prints Animals & People Content -->
 <div class="printAnimals container hidden hide">
-    <h3>Animals & People</h3>
+    <h3><u>Animals & People</u></h3>
     <div class="imgONE">
         <img src="imgs/blue.crab.jpg" alt="">    
         <span class="odd"><p class="title">Blue Crab </p><p> 11" x 14"</p></span>
@@ -190,13 +190,14 @@
     <div class="imgSIX">
         <img src="imgs/Making-Waves-at-Herron-Island.jpg" alt=""> 
         <span class="even"><p class="title">Making Waves at Herron Island </p><p> 11" x 14"</p></div></span>
-         
     </div>
+   
+   
 </div>
 
 <!-- Prints Places & Things Content -->
 <div class="printPlaces container hidden hide">
-    <h3>Places & Things </h3>
+    <h3><u>Places & Things</u></h3>
     <div class="imgONE">
         <img src="imgs/chihuly-glass.jpg" alt="">
         <span class="odd"><p class="title">Chihuly Glass </p><p> ?" x ?"</p></span>
@@ -255,7 +256,40 @@
 </div>
 
 
+ <!-- the footer behave well inside the grid div ? -->
+ <footer class="hidden">
+    <p class="BOfoot space">Beth Owen  |  <a data-email="bluekayak123@yahoo.com" href="mailto:bluekayak123@yahoo.com">bluekayak123@yahoo.com</a></p>
+    <p class="ad space">Website designed by <a href="www.my-portfolio.com">logo</a></p>
+</footer>
 
-<script src="script.js"></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyD0AW--US_4E4D4-pfXFy2Y6prP_2Gq24g",
+    authDomain: "moms-gallery.firebaseapp.com",
+    databaseURL: "https://moms-gallery.firebaseio.com",
+    projectId: "moms-gallery",
+    storageBucket: "moms-gallery.appspot.com",
+    messagingSenderId: "370572996194",
+    appId: "1:370572996194:web:68902682709362b9272b3b",
+    measurementId: "G-2KLWQZRWYQ"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
+
+
+
+<script src="layout.js"></script>
+<script src="admin.js"></script>
 </body>
 </html>

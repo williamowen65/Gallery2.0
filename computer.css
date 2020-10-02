@@ -6,7 +6,7 @@
     #header-container{
         
         grid-template-columns: 1fr 2fr 1fr;
-        grid-template-rows: 85vh 15vh;
+        grid-template-rows: 90vh 10vh;
     }
      .header-img{
         grid-column: 1/-1;
@@ -25,7 +25,7 @@
         min-width: 190px;
     }
     .bethOwen{
-        margin: 15px 0 0;
+        margin: 5px 0 0;
         display: inline-block;
     }
     .watercolor{
@@ -42,7 +42,7 @@
     nav{
        display: inline-block;
        text-align: center;
-       padding-top: 15px;
+       padding-top: 5px;
        font-size: 20px;
        min-width: 500px;
        max-width: 1300px;
@@ -67,7 +67,7 @@
     .contact{
         display: inline-block;
         text-align: center;
-        padding-top: 35px;
+        padding-top: 25px;
         margin-bottom: 0;
         flex-grow: 1;
     }
@@ -97,7 +97,7 @@
       /*   // Origional Options (after click original btn) //     */
     
     .originals{
-        
+        height: 81vh;
         grid-template-columns: 1fr 1fr 1fr;
         grid-row: 80px 1fr;
         grid-column-gap: 10px;
@@ -123,7 +123,8 @@
     
       /*   // Print Options (after click Prints btn) //     */
       .prints{
-        
+        height: 81vh;
+
         grid-template-columns: 1fr 1fr 1fr;
         grid-row: 80px 1fr;
         grid-column-gap: 10px;
@@ -207,6 +208,20 @@
         left: -100%;
     }
 }
+
+
+/* footer */
+footer{
+    margin-bottom: 20px;
+}
+.space{
+    margin: 5px 5%;
+} 
+
+.moreComingSoon{
+    height: 65vh;
+}
+
 
 @media only screen and (min-width: 860px){
     
