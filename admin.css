@@ -1,0 +1,21 @@
+body{
+    padding: 30px;
+    overflow-x: hidden;
+    transform: translateX(50px);
+}
+.input-group{
+    padding-bottom: 10px;
+    max-width: 800px;
+}
+
+small{
+    padding: 0 20px;
+}
+i{
+    transform: translateY(2px);
+}
+
+
+img{
+    width:20%;
+}

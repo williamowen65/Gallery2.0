@@ -2,9 +2,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
     <title>Document</title>
 </head>
 <body>
-    <h1>hi</h1>
+    
+
+
+    <h1>Add a new image</h1>
+    
+    <small>First upload image to image host</small><i class="fas fa-angle-double-down"></i>
+
+    <form class="new-image my-3" autocomplete="off">
+
+        <!-- title -->
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text title">Title:</div>
+            </div>
+            <input type="text" id="title" class="form-control">
+           
+        </div>
+
+        <!-- category  -->
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text category">Category:</div>
+            </div>
+            <input type="text" id="category" class="form-control">
+        </div>
+        <small>EX: originalFlowers, originalAnimals, originalPlace, printFlowers, printAnimals, printPlace</small>
+
+        <!-- dimensions -->
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text dimensions">Dimensions:</div>
+            </div>
+            <input type="text" id="dimensions" class="form-control">
+            
+        </div>
+
+        <!-- src -->
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text src">SRC:</div>
+            </div>
+            <input type="text" id="src" class="form-control">
+            
+        </div>
+
+                <!-- divClass -->
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text divClass">divClass:</div>
+            </div>
+            <input type="text" id="divClass" class="form-control">
+            
+        </div>
+
+                <!-- spanClass -->
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text spanClass">SpanClass:</div>
+            </div>
+            <input type="text" id="spanClass" class="form-control">
+            
+        </div>
+        
+    <input type="submit" class="btn" value="send" style="">
+        
+
+    </form>  
+
+
+    <div class="originalFlowers"></div>
+
+
+    <!-- <script>
+        const body = document.querySelector('body');
+
+        setTimeout(() => {
+            body.innerHTML += "<h1>Hi Mother,</h1>"},
+            1000
+        );
+        setTimeout(() => {
+            body.innerHTML += "<p>How may I help you today?</p>"},
+            3000
+        );
+    </script> -->
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyD0AW--US_4E4D4-pfXFy2Y6prP_2Gq24g",
+        authDomain: "moms-gallery.firebaseapp.com",
+        databaseURL: "https://moms-gallery.firebaseio.com",
+        projectId: "moms-gallery",
+        storageBucket: "moms-gallery.appspot.com",
+        messagingSenderId: "370572996194",
+        appId: "1:370572996194:web:68902682709362b9272b3b",
+        measurementId: "G-2KLWQZRWYQ"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+    </script>
+    
+    <script src="admin.js"></script>
 </body>
 </html>
