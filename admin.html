@@ -28,13 +28,24 @@
         </div>
 
         <!-- category  -->
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text category">Category:</div>
+        <div class="catBlock">
+            <div class="">
+                <div class="title category">Category:</div>
             </div>
-            <input type="text" id="category" class="form-control">
+            <input type="radio" name="category" id="originalFlowers" value="originalFlowers" checked>
+            <label for="originalFlowers">Original Flowers</label>
+            <input type="radio" name="category" id="originalAnimals" value="originalAnimals">
+            <label for="originalAnimals">Original Animals</label>
+            <input type="radio" name="category" id="originalPlaces" value="originalPlaces">
+            <label for="originalPlaces">Original Places</label>
+            <br>
+            <input type="radio" name="category" id="printFlowers" value="printFlowers">
+            <label for="printFlowers">Print Flowers</label>
+            <input type="radio" name="category" id="printAnimals" value="printAnimals">
+            <label for="printAnimals">Print Animals</label><input type="radio" name="category" id="printPlaces" value="printPlaces">
+            <label for="printPlaces">Print Places</label>
         </div>
-        <small>EX: originalFlowers, originalAnimals, originalPlace, printFlowers, printAnimals, printPlace</small>
+        
 
         <!-- dimensions -->
         <div class="input-group">
@@ -59,7 +70,7 @@
             <div class="input-group-prepend">
                 <div class="input-group-text divClass">divClass:</div>
             </div>
-            <input type="text" id="divClass" class="form-control">
+            <input type="text" id="divClass" class="form-control" placeholder="img###">
             
         </div>
 
@@ -68,7 +79,7 @@
             <div class="input-group-prepend">
                 <div class="input-group-text spanClass">SpanClass:</div>
             </div>
-            <input type="text" id="spanClass" class="form-control">
+            <input type="text" id="spanClass" class="form-control" placeholder="odd or even #">
             
         </div>
         

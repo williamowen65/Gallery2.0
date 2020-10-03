@@ -346,3 +346,42 @@ placesThingsPbtn.addEventListener('click', () => {
 
 
 
+
+
+
+
+
+const addImage = (image) => {
+    let html = `
+    <div class="${image.divClass}">
+        <img src="${image.src}" alt="">        
+        <span class="${image.spanClass}">
+            <p class="title">${image.title}</p>
+            <p class="dimensions">${image.dimensions}</p>
+        </span>
+    </div>
+    `;
+    
+    if(image.category === "originalFlowers"){
+        originalFlowers.innerHTML += html;
+    }else if(image.category === "originalAnimals"){
+        originalAnimals.innerHTML += html;
+    }else if(image.category === "originalPlaces"){
+        originalPlaces.innerHTML += html;
+    }else if(image.category === "printFlowers"){
+        printFlowers.innerHTML += html;
+    }else if(image.category === "printAnimals"){
+        printAnimals.innerHTML += html;
+    }else if(image.category === "printPlaces"){
+        printPlaces.innerHTML += html;
+    }
+};
+
+db.collection('images').get().then((snapshot) => {
+    // console.log(snapshot.docs[1].data());
+    snapshot.docs.forEach(doc => {
+        addImage(doc.data());
+    })
+}).catch(err => {
+    console.log(err);
+});

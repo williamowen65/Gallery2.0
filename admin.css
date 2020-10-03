@@ -1,21 +1,36 @@
 body{
-    padding: 30px;
+    padding: 20px 10%;
     overflow-x: hidden;
-    transform: translateX(50px);
-}
-.input-group{
-    padding-bottom: 10px;
-    max-width: 800px;
-}
-
-small{
-    padding: 0 20px;
 }
 i{
     transform: translateY(2px);
 }
 
+.title.category {
+    color:black;
+    text-align: center;
+    transform: translateY(10px);
+}
+.catBlock{
+    color:blue;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+
+
+
 
 img{
     width:20%;
+}
+
+
+.catBlock input, .catBlock label{
+    padding: 30px 10px 0 10px;
+}
+.catBlock input{
+    margin-left: 60px;
+
 }
