@@ -217,6 +217,7 @@ footer{
 }
 .space{
     margin: 5px 5%;
+   
 } 
 
 .moreComingSoon{
@@ -249,4 +250,17 @@ footer{
         top: -350px;
         left: -100%;
     }
+    .space{
+        font-size: 20px;
+        margin: 5px 7%;
+    }
+    footer{
+        opacity: 0.7;
+        margin: 0;
+    }
+    .spacer{
+        height:85vh;
+    }
+ 
+       
 }

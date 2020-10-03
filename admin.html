@@ -11,85 +11,122 @@
 <body>
     
 
+    <div class="addIMG">
+        <h1>Add a new image</h1>
+        <small>First upload image to image host</small> <a href="https://imgur.com/" target="_blank">www.imgur.com</a>
 
-    <h1>Add a new image</h1>
+        <form class="new-image my-3" autocomplete="off">
+
+            <!-- title -->
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text title">Title:</div>
+                </div>
+                <input type="text" id="title" class="form-control">
+            </div>
+
+
+                    <!-- category  -->
+            <div class="catBlock">
+                <div class="">
+                    <div class="title category">Category:</div>
+                </div>
+                <div class="radio1 radio">
+                    <input type="radio" name="category" id="originalFlowers" value="originalFlowers" checked>
+                    <label for="originalFlowers">Original Flowers</label>
+                </div>
+                <div class="radio2 radio">
+                    <input type="radio" name="category" id="originalAnimals" value="originalAnimals">
+                    <label for="originalAnimals">Original Animals/People</label>
+                </div>
+                <div class="radio3 radio">
+                    <input type="radio" name="category" id="originalPlaces" value="originalPlaces">
+                    <label for="originalPlaces">Original Places/Things</label>
+                </div> <br>
+                <div class="radio4 radio">
+                    <input type="radio" name="category" id="printFlowers" value="printFlowers">
+                    <label for="printFlowers">Print Flowers</label>
+                </div>
+                <div class="radio5 radio">
+                    <input type="radio" name="category" id="printAnimals" value="printAnimals">
+                    <label for="printAnimals">Print Animals/People</label>
+                </div>
+                <div class="radio6 radio">
+                    <input type="radio" name="category" id="printPlaces" value="printPlaces">
+                    <label for="printPlaces">Print Places/Things</label>
+                </div>
+            </div>
+
+
+            <!-- dimensions -->
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text dimensions">Dimensions:</div>
+                </div>
+                <input type="text" id="dimensions" class="form-control">  
+            </div>
+
+            <!-- src -->
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text src">SRC:</div>
+                </div>
+                <input type="text" id="src" class="form-control">  
+            </div>
+
+                    <!-- divClass -->
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text divClass">divClass:</div>
+                </div>
+                <input type="text" id="divClass" class="form-control" placeholder="img###">  
+            </div>
+
+                    <!-- spanClass -->
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text spanClass">SpanClass:</div>
+                </div>
+                <input type="text" id="spanClass" class="form-control" placeholder="odd or even #">
+            </div>
+            
+            <input type="submit" class="button" value="send">
+                
+
+            </form>  
+
+    </div> <!-- add new img div -->
+
+
     
-    <small>First upload image to image host</small><i class="fas fa-angle-double-down"></i>
+    
+  
+<hr>
 
-    <form class="new-image my-3" autocomplete="off">
-
-        <!-- title -->
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text title">Title:</div>
-            </div>
-            <input type="text" id="title" class="form-control">
-           
-        </div>
-
-        <!-- category  -->
-        <div class="catBlock">
-            <div class="">
-                <div class="title category">Category:</div>
-            </div>
-            <input type="radio" name="category" id="originalFlowers" value="originalFlowers" checked>
-            <label for="originalFlowers">Original Flowers</label>
-            <input type="radio" name="category" id="originalAnimals" value="originalAnimals">
-            <label for="originalAnimals">Original Animals</label>
-            <input type="radio" name="category" id="originalPlaces" value="originalPlaces">
-            <label for="originalPlaces">Original Places</label>
-            <br>
-            <input type="radio" name="category" id="printFlowers" value="printFlowers">
-            <label for="printFlowers">Print Flowers</label>
-            <input type="radio" name="category" id="printAnimals" value="printAnimals">
-            <label for="printAnimals">Print Animals</label><input type="radio" name="category" id="printPlaces" value="printPlaces">
-            <label for="printPlaces">Print Places</label>
-        </div>
         
-
-        <!-- dimensions -->
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text dimensions">Dimensions:</div>
-            </div>
-            <input type="text" id="dimensions" class="form-control">
-            
-        </div>
-
-        <!-- src -->
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text src">SRC:</div>
-            </div>
-            <input type="text" id="src" class="form-control">
-            
-        </div>
-
-                <!-- divClass -->
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text divClass">divClass:</div>
-            </div>
-            <input type="text" id="divClass" class="form-control" placeholder="img###">
-            
-        </div>
-
-                <!-- spanClass -->
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text spanClass">SpanClass:</div>
-            </div>
-            <input type="text" id="spanClass" class="form-control" placeholder="odd or even #">
-            
-        </div>
-        
-    <input type="submit" class="btn" value="send" style="">
-        
-
-    </form>  
+<div class="grid">
+    <div class="originalFlowers tidy">
+        <h4>Original Flowers</h4>
+    </div>
+    <div class="originalAnimals tidy">
+        <h4>Original Animals/People</h4>
+    </div>
+    <div class="originalPlaces tidy">
+        <h4>Original Places/Things</h4>
+    </div>
+    <div class="printFlowers tidy">
+        <h4>Print Flowers</h4>
+    </div>
+    <div class="printAnimals tidy">
+        <h4>Print Animals/People</h4>
+    </div>
+    <div class="printPlaces tidy">
+        <h4>Print Places/Things</h4>
+    </div>
+</div>
 
 
-    <div class="originalFlowers"></div>
+    
 
 
     <!-- <script>

@@ -24,7 +24,6 @@ header{
 .logo{
     display: block;
     text-align: center;
-   
 }
 .bethOwen{
     margin: 15px 0 0;
@@ -36,11 +35,11 @@ header{
 }
 .mobile-nav{
     color: tan;
-    background-color: rgb(6, 2, 39);
     z-index: 0;
     position: relative;
     top: -25px;
     animation: fader 1.5s ease-in forwards;
+    transform: translateY(10px);
 }
 
 @keyframes fader{
@@ -237,7 +236,7 @@ i{
 footer{
     text-align: center;
     color:rgb(33, 22, 139);
-   
+   font-size: 16px;
     margin-bottom: 25px;
 }
 footer a{

@@ -59,24 +59,29 @@ hamburger.addEventListener('click', () => {
 
         console.log(result);
 
+
         if(result[0] && !mobileNav.classList.contains('hidden')){
             spacer.classList.add('hidden');
             mobileNav.classList.add('hidden');   
-            // footer.classList.add('hidden');
+            footer.classList.add('hidden');
+            // console.log('one');
         
         }else if(result[0]){
             spacer.classList.add('hidden');
             mobileNav.classList.remove('hidden');
             // result[0].classList.remove('hidden');
+            footer.classList.remove('hidden');
+            // console.log('two');
+
 
        }else if(!result[0]){
         spacer.classList.remove('hidden');
         mobileNav.classList.remove('hidden');
         footer.classList.remove('hidden');
+        // console.log('three');
+
        }
    
-
-       
        
 });
 

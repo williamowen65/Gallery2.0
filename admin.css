@@ -1,6 +1,10 @@
 body{
+    
+   
+}
+.addIMG{
+    margin-bottom: 50px;
     padding: 20px 10%;
-    overflow-x: hidden;
 }
 i{
     transform: translateY(2px);
@@ -16,15 +20,10 @@ i{
     text-align: center;
     margin-bottom: 30px;
 }
-
-
-
-
-
-
-img{
-    width:20%;
+.radio{
+    display: inline-block;
 }
+
 
 
 .catBlock input, .catBlock label{
@@ -33,4 +32,44 @@ img{
 .catBlock input{
     margin-left: 60px;
 
+}
+.button{
+    margin-left: 50%;
+    margin-top: 5px;
+}
+
+
+
+
+hr{
+    margin-bottom: 50px;
+    border-width: 5px;
+}
+
+
+.grid::before{
+    content: "double-click an image to edit or delete";
+    position: absolute;
+    transform: translateY(-30px);
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(6, 200px);
+    grid-template-rows: 100px 1fr;
+    padding: 20px 10%;
+
+}
+
+.tidy{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 1fr;
+}
+.dimensions, .title, .tidy p{
+    margin: 0;
+    padding: 0;
+}
+img{
+    width:40%;
+    padding-top: 40px;
 }
