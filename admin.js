@@ -15,10 +15,10 @@ form.addEventListener('submit', e => {
         spanClass: form.spanClass.value
     };
 
-    console.log(image);
+    // console.log(image);
 
 db.collection('images').add(image).then(() => {
-    console.log('image added');
+    // console.log('image added');
     // form.clear();
     }).catch(err => {
         console.log(err);
@@ -71,15 +71,65 @@ const addImage = (image, id) => {
     }
 };
 
-db.collection('images').get().then((snapshot) => {
-    // console.log(snapshot.docs[1].data());
-    snapshot.docs.forEach(doc => {
-        // console.log(doc.id);
-        addImage(doc.data(), doc.id);
-    })
-}).catch(err => {
-    console.log(err);
+const deleteImage = (id) => {
+    const imgDEMO = document.querySelectorAll('.tidy div');
+    imgDEMO.forEach(image => {
+        if(image.getAttribute('data-id') === id){
+            image.remove()
+        }
+    });
+  
+};
+
+db.collection('images').onSnapshot(snapshot => {
+    console.log(snapshot.docChanges());
+    snapshot.docChanges().forEach(change => {
+        console.log(change);
+        const doc = change.doc
+        console.log(doc);
+        if(change.type === 'added'){
+            addImage(doc.data(), doc.id);
+        } else if (change.type === 'removed'){
+            deleteImage(doc.id);
+        } else if (change.type === 'modified'){
+            const docCategory = doc.data().category;
+            const docTitle = doc.data().title;
+            const docDimensions = doc.data().dimensions;
+            const docSrc = doc.data().src;
+            const docId = doc.id;
+            
+
+            console.log(docCategory,docTitle,docDimensions,docSrc, docId);
+
+        const imgDEMO = document.querySelectorAll('.tidy div');
+        imgDEMO.forEach(image => {
+            if(image.getAttribute('data-id') === docId){
+                image.children[0].setAttribute('src', docSrc);
+                image.children[1].children[0].innerText = docTitle;
+                image.children[1].children[1].innerText = docDimensions;
+
+            }
+    });
+
+
+
+        }
+    });
 });
+
+
+
+
+
+// db.collection('images').get().then((snapshot) => {
+//     // console.log(snapshot.docs[1].data());
+//     snapshot.docs.forEach(doc => {
+//         // console.log(doc.id);
+//         addImage(doc.data(), doc.id);
+//     })
+// }).catch(err => {
+//     console.log(err);
+// });
 
 
 
@@ -97,13 +147,12 @@ allIMG.addEventListener('dblclick', e => {
     const title = e.target.nextElementSibling.firstElementChild.innerText;
     const dimensions = e.target.nextElementSibling.lastElementChild.innerText;
     const category = e.target.parentElement.parentElement.classList[0];
-    console.log(dimensions, e);
+    // console.log(dimensions, e);
     const editForm = document.querySelector('.editor');
     const backdrop = document.querySelector('.backdrop');
 
 
     if(backdrop.getAttribute('style') === "display: none;"){
-        console.log('so');
         
 
 
@@ -155,7 +204,7 @@ exit.addEventListener('click', e => {
 
 
 const deleteImg = document.querySelector('.delete');
-console.log(deleteImg);
+// console.log(deleteImg);
 deleteImg.addEventListener('dblclick', () => {
 if(confirm('are you sure?')){
     const id = document.querySelector('img.demo').getAttribute('data-id');
@@ -182,7 +231,7 @@ formPopup.addEventListener('submit', e => {
     const categoryPop = formPopup.newCategory.value;
 
     const id = document.querySelector('img.demo').getAttribute('data-id');
-    console.log(id);
+    // console.log(id);
     db.collection('images').doc(id).update({
         "title": titlePop,
         "src": srcPop,
@@ -190,12 +239,19 @@ formPopup.addEventListener('submit', e => {
         "category": categoryPop
     });
 
+    const editForm = document.querySelector('.editor');
+    const backdrop = document.querySelector('.backdrop');
     const sent = document.querySelector('.sent');
 
     sent.setAttribute('style','display: block;');
     setTimeout(() => {
         sent.setAttribute('style','display: none;');
     }, 3000);
+    setTimeout(() => {
+        backdrop.setAttribute('style','display: none;');
+        editForm.innerHTML = '';
+
+    },3500);
 });
 
 
