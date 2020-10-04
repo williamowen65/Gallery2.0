@@ -125,6 +125,10 @@ img.demo:hover{
 .editor .button{
     margin-bottom: 5px;
 }
+.sent{
+    position: absolute;
+    transform: translate(197px, -40px);
+}
 .delete{
     background-color: red;
     display: inline-block;

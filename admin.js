@@ -131,7 +131,7 @@ allIMG.addEventListener('dblclick', e => {
     <input type="submit" class="button" value="send">
     <br>
     <h4 class="delete">Delete</h4>
-
+    <small class="sent" style="display: none;">Update Completed</small>
     `;
 
 editForm.innerHTML += html;
@@ -189,6 +189,13 @@ formPopup.addEventListener('submit', e => {
         "dimensions": dimensionsPop,
         "category": categoryPop
     });
+
+    const sent = document.querySelector('.sent');
+
+    sent.setAttribute('style','display: block;');
+    setTimeout(() => {
+        sent.setAttribute('style','display: none;');
+    }, 3000);
 });
 
 
