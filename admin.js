@@ -17,12 +17,21 @@ form.addEventListener('submit', e => {
 
     // console.log(image);
 
-db.collection('images').add(image).then(() => {
+    db.collection('images').add(image).then(() => {
     // console.log('image added');
     // form.clear();
     }).catch(err => {
         console.log(err);
     });
+
+    const imgSent = document.querySelector('.imgSent');
+    imgSent.setAttribute('style','display: block;');
+    setTimeout(() => {
+        imgSent.setAttribute('style','display: none;');
+        form.reset();
+    },2500);
+
+
 });
 
 
@@ -92,14 +101,14 @@ db.collection('images').onSnapshot(snapshot => {
         } else if (change.type === 'removed'){
             deleteImage(doc.id);
         } else if (change.type === 'modified'){
-            const docCategory = doc.data().category;
+        //     const docCategory = doc.data().category;
             const docTitle = doc.data().title;
             const docDimensions = doc.data().dimensions;
             const docSrc = doc.data().src;
             const docId = doc.id;
             
 
-            console.log(docCategory,docTitle,docDimensions,docSrc, docId);
+        //     console.log(docCategory,docTitle,docDimensions,docSrc, docId);
 
         const imgDEMO = document.querySelectorAll('.tidy div');
         imgDEMO.forEach(image => {
@@ -107,12 +116,25 @@ db.collection('images').onSnapshot(snapshot => {
                 image.children[0].setAttribute('src', docSrc);
                 image.children[1].children[0].innerText = docTitle;
                 image.children[1].children[1].innerText = docDimensions;
-
-            }
-    });
-
-
-
+        //         const currentCat = image.parentElement.classList[0];
+        //         if(currentCat !== docCategory){
+        //             if(docCategory === "originalFlowers"){
+        //                 /* UNFINSISHED */
+        //                 originalFlowers.innerHTML += image;
+        //             } else if(docCategory === "originalAnimals"){
+        //                 originalAnimals.innerHTML += image;
+        //             } else if(docCategory === "originalPlaces"){
+        //                 originalPlaces.innerHTML += image;
+        //             } else if(docCategory === "printFlowers"){
+        //                 printFlowers.innerHTML += image;
+        //             } else if(docCategory === "printAnimals"){
+        //                 printAnimals.innerHTML += image;
+        //             } else if(docCategory === "printPlaces"){
+        //                 printPlaces.innerHTML += image;
+        //             } 
+            };
+        }
+        );
         }
     });
 });
@@ -175,6 +197,8 @@ allIMG.addEventListener('dblclick', e => {
     <div class="newInfo">
         <label for="newCategory"> category: </label>
         <input name="newCategory" type="text" id="newCategory" value="${category}" required>
+        <br>
+        <small>if you edit category, reload page to see the change</small>
     </div>
 
     <input type="submit" class="button" value="send">
@@ -209,6 +233,8 @@ deleteImg.addEventListener('dblclick', () => {
 if(confirm('are you sure?')){
     const id = document.querySelector('img.demo').getAttribute('data-id');
     db.collection('images').doc(id).delete();
+    backdrop.setAttribute('style','display: none;');
+    editForm.innerHTML ='';
 };
 });
 
