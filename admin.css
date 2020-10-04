@@ -37,7 +37,9 @@ i{
     margin-left: 50%;
     margin-top: 5px;
 }
-
+span.number{
+    transform: translateY(-20px);
+}
 
 
 

@@ -91,11 +91,11 @@ const deleteImage = (id) => {
 };
 
 db.collection('images').onSnapshot(snapshot => {
-    console.log(snapshot.docChanges());
+    // console.log(snapshot.docChanges());
     snapshot.docChanges().forEach(change => {
-        console.log(change);
+        // console.log(change);
         const doc = change.doc
-        console.log(doc);
+        // console.log(doc);
         if(change.type === 'added'){
             addImage(doc.data(), doc.id);
         } else if (change.type === 'removed'){
@@ -136,6 +136,37 @@ db.collection('images').onSnapshot(snapshot => {
         }
         );
         }
+
+        /* counts for category */
+
+        const OFDivs = originalFlowers.children.length -2;
+        const OFspan = document.querySelector('.numberOF');
+
+        const OADivs = originalAnimals.children.length -2;
+        const OAspan = document.querySelector('.numberOA');
+
+        const OPDivs = originalPlaces.children.length -2;
+        const OPspan = document.querySelector('.numberOP');
+
+        const PFDivs = printFlowers.children.length -2;
+        const PFspan = document.querySelector('.numberPF');
+
+        const PADivs = printAnimals.children.length -2;
+        const PAspan = document.querySelector('.numberPA');
+
+        const PPDivs = printPlaces.children.length -2;
+        const PPspan = document.querySelector('.numberPP');
+
+// numberPF
+// numberPA
+// numberPP
+        OFspan.innerText = OFDivs + " items";
+        OAspan.innerText = OADivs + " items";
+        OPspan.innerText = OPDivs + " items";
+        PFspan.innerText = PFDivs + " items";
+        PAspan.innerText = PADivs + " items";
+        PPspan.innerText = PPDivs + " items";
+
     });
 });
 
@@ -283,4 +314,3 @@ formPopup.addEventListener('submit', e => {
 
 
 
- 
