@@ -73,3 +73,65 @@ img{
     width:40%;
     padding-top: 40px;
 }
+img:hover{
+    cursor: pointer;
+}
+img.demo:hover{
+    cursor: default;
+}
+.backdrop{
+   width: 80vw;
+   height: auto;
+   position: fixed;
+   left:10%;
+   top:5%;
+   background-color:white;
+   border: 1px solid black;
+  max-width: 510px;
+}
+.backdrop p:first-child{
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: underline;
+}
+.backdrop p.exit{
+    position: absolute;
+    transform: translate(450px,-70px);
+    text-decoration: none;
+    font-size: 16px;
+    color: red;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 800;
+}
+.backdrop p.exit:hover{
+    cursor: pointer;
+}
+
+.editor{
+    margin: 0 5%;
+    
+}
+
+.editor img{
+    width: 50%;
+    
+    display: block;
+    margin: 0 27%;
+}
+.newInfo{
+    text-align: center;
+    margin-top: 5px;
+}
+.editor .button{
+    margin-bottom: 5px;
+}
+.delete{
+    background-color: red;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 3px 8px;
+}
+.delete:hover{
+    color: rgba(137, 137, 231, 0.726);
+    background-color: rgb(187, 29, 29);
+}
