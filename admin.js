@@ -57,6 +57,7 @@ const addImage = (image, id) => {
         <span class="${image.spanClass}">
             <p class="title">${image.title}</p>
             <p class="dimensions">${image.dimensions}</p>
+            <p class="divClass"> ${image.divClass}</p>
         </span>
     </div>
     `;
@@ -94,6 +95,7 @@ db.collection('images').onSnapshot(snapshot => {
         // console.log(doc);
         if(change.type === 'added'){
             addImage(doc.data(), doc.id);
+            // console.log(doc.data());
         } else if (change.type === 'removed'){
             deleteImage(doc.id);
         } else if (change.type === 'modified'){
@@ -102,6 +104,7 @@ db.collection('images').onSnapshot(snapshot => {
             const docDimensions = doc.data().dimensions;
             const docSrc = doc.data().src;
             const docId = doc.id;
+            const docPosition = doc.data().divClass;
             
 
         //     console.log(docCategory,docTitle,docDimensions,docSrc, docId);
@@ -112,7 +115,9 @@ db.collection('images').onSnapshot(snapshot => {
                 image.children[0].setAttribute('src', docSrc);
                 image.children[1].children[0].innerText = docTitle;
                 image.children[1].children[1].innerText = docDimensions;
-        //         const currentCat = image.parentElement.classList[0];
+                image.children[1].children[2].innerText = docPosition;
+
+         //         const currentCat = image.parentElement.classList[0];
         //         if(currentCat !== docCategory){
         //             if(docCategory === "originalFlowers"){
         //                 /* UNFINSISHED */
@@ -157,11 +162,11 @@ db.collection('images').onSnapshot(snapshot => {
 // numberPA
 // numberPP
         OFspan.innerText = OFDivs;
-        OAspan.innerText = OADivs + " items";
-        OPspan.innerText = OPDivs + " items";
-        PFspan.innerText = PFDivs + " items";
-        PAspan.innerText = PADivs + " items";
-        PPspan.innerText = PPDivs + " items";
+        OAspan.innerText = OADivs;
+        OPspan.innerText = OPDivs;
+        PFspan.innerText = PFDivs;
+        PAspan.innerText = PADivs;
+        PPspan.innerText = PPDivs;
 
 
 
@@ -173,23 +178,73 @@ const radio1 = document.querySelector('.radio1');
 const radios = document.querySelectorAll('.radio');
 
 const numberOF = document.querySelector('span.numberOF');
+const numberOA = document.querySelector('span.numberOA');
 const numberOP = document.querySelector('span.numberOP');
+const numberPF = document.querySelector('span.numberPF');
+const numberPA = document.querySelector('span.numberPA');
+const numberPP = document.querySelector('span.numberPP');
+
+const OF = Number(numberOF.innerText) + 1;
+const OA = Number(numberOA.innerText) + 1;
+const OP = Number(numberOP.innerText) + 1;
+const PF = Number(numberPF.innerText) + 1;
+const PA = Number(numberPA.innerText) + 1;
+const PP = Number(numberPP.innerText) + 1;
+
+function isEven(value){
+    if (value%2 == 0){
+        return true;
+    } else {
+        return false;
+    }
+}
 
 
 radios.forEach((radio) => {
     radio.addEventListener('click', radio => {
        if(radio.target.parentElement.classList[0] === 'radio1'){
-        console.log(numberOF, numberOP);
+        // console.log("img" + numberOF.innerText);
+        form.divClass.value = "img" + OF;
+        if(isEven(OF)){
+            form.spanClass.value = 'even';
+        } else {
+            form.spanClass.value = 'odd';
+        }
        } else if(radio.target.parentElement.classList[0] === 'radio2'){
-        console.log('hi');
+        form.divClass.value = "img" + OA;
+        if(isEven(OA)){
+            form.spanClass.value = 'even';
+        } else {
+            form.spanClass.value = 'odd';
+        }
        } else if(radio.target.parentElement.classList[0] === 'radio3'){
-        console.log('hi');
+        form.divClass.value = "img" + OP;
+        if(isEven(OP)){
+            form.spanClass.value = 'even';
+        } else {
+            form.spanClass.value = 'odd';
+        }
        } else if(radio.target.parentElement.classList[0] === 'radio4'){
-        console.log('hi');
+        form.divClass.value = "img" + PF;
+        if(isEven(PF)){
+            form.spanClass.value = 'even';
+        } else {
+            form.spanClass.value = 'odd';
+        }
        } else if(radio.target.parentElement.classList[0] === 'radio5'){
-        console.log('hi');
+        form.divClass.value = "img" + PA;
+        if(isEven(PA)){
+            form.spanClass.value = 'even';
+        } else {
+            form.spanClass.value = 'odd';
+        }
        } else if(radio.target.parentElement.classList[0] === 'radio6'){
-        console.log('hi');
+        form.divClass.value = "img" + PP;
+        if(isEven(PP)){
+            form.spanClass.value = 'even';
+        } else {
+            form.spanClass.value = 'odd';
+        }
        } 
     });
 });
@@ -228,13 +283,13 @@ allIMG.addEventListener('dblclick', e => {
     const image = e.target.getAttribute('src');
     const id = e.target.parentElement.getAttribute('data-id');
     const title = e.target.nextElementSibling.firstElementChild.innerText;
-    const dimensions = e.target.nextElementSibling.lastElementChild.innerText;
-    const category = e.target.parentElement.parentElement.classList[0];
-    // console.log(dimensions, e);
+    const dimensions = e.target.nextElementSibling.firstElementChild.nextElementSibling.innerText;
+    const position = e.target.nextElementSibling.lastElementChild.innerText;
+    console.log(dimensions, e);
     const editForm = document.querySelector('.editor');
     const backdrop = document.querySelector('.backdrop');
 
-
+   
     if(backdrop.getAttribute('style') === "display: none;"){
         
 
@@ -254,6 +309,10 @@ allIMG.addEventListener('dblclick', e => {
         <input name="newDimensions" type="text" id="newDimensions" value="${dimensions}" required><br>
         <small>NOTE: Use single quotes twice, not double quotes</small><br>
        <small> Use <code>&lt;br&gt;</code> between sets of sizes (inserting a break)</small>
+    </div>
+    <div class="newInfo">
+    <label for="newPosition"> position: </label>
+    <input name="newPosition" type="text" id="newPosition" value="${position}">
     </div>
     <div class="newInfo">
         <label for="newCategory"> category: </label>
@@ -314,7 +373,8 @@ formPopup.addEventListener('submit', e => {
     const titlePop = formPopup.newTitle.value;
     const srcPop = formPopup.newImg.value;
     const dimensionsPop = formPopup.newDimensions.value;
-    const categoryPop = formPopup.newCategory.value;
+    // const categoryPop = formPopup.newCategory.value;
+    const positionPop = formPopup.newPosition.value;
 
     const id = document.querySelector('img.demo').getAttribute('data-id');
     // console.log(id);
@@ -322,7 +382,8 @@ formPopup.addEventListener('submit', e => {
         "title": titlePop,
         "src": srcPop,
         "dimensions": dimensionsPop,
-        "category": categoryPop
+        // "category": categoryPop,
+        "divClass": positionPop
     });
 
     const editForm = document.querySelector('.editor');

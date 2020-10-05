@@ -43,7 +43,10 @@ span.number{
 span.number:after{
     content: " items";
 }
+.divClass:before{
+    content: "Position:";
 
+}
 
 hr{
     margin-bottom: 50px;
