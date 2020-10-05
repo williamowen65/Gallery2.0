@@ -40,7 +40,9 @@ i{
 span.number{
     transform: translateY(-20px);
 }
-
+span.number:after{
+    content: " items";
+}
 
 
 hr{
@@ -59,7 +61,7 @@ hr{
     grid-template-columns: repeat(6, 200px);
     grid-template-rows: 100px 1fr;
     padding: 20px 10%;
-
+    height: 100%;
 }
 
 .tidy{
