@@ -34,10 +34,6 @@ form.addEventListener('submit', e => {
 
 });
 
-
-
-
-
 /* dashboard, see which files are where and their info, be able to edit */
 
 
@@ -160,12 +156,46 @@ db.collection('images').onSnapshot(snapshot => {
 // numberPF
 // numberPA
 // numberPP
-        OFspan.innerText = OFDivs + " items";
+        OFspan.innerText = OFDivs;
         OAspan.innerText = OADivs + " items";
         OPspan.innerText = OPDivs + " items";
         PFspan.innerText = PFDivs + " items";
         PAspan.innerText = PADivs + " items";
         PPspan.innerText = PPDivs + " items";
+
+
+
+
+
+
+/* *******ACTIVE ZONE***************/
+const radio1 = document.querySelector('.radio1');
+const radios = document.querySelectorAll('.radio');
+
+const numberOF = document.querySelector('span.numberOF');
+const numberOP = document.querySelector('span.numberOP');
+
+
+radios.forEach((radio) => {
+    radio.addEventListener('click', radio => {
+       if(radio.target.parentElement.classList[0] === 'radio1'){
+        console.log(numberOF, numberOP);
+       } else if(radio.target.parentElement.classList[0] === 'radio2'){
+        console.log('hi');
+       } else if(radio.target.parentElement.classList[0] === 'radio3'){
+        console.log('hi');
+       } else if(radio.target.parentElement.classList[0] === 'radio4'){
+        console.log('hi');
+       } else if(radio.target.parentElement.classList[0] === 'radio5'){
+        console.log('hi');
+       } else if(radio.target.parentElement.classList[0] === 'radio6'){
+        console.log('hi');
+       } 
+    });
+});
+
+
+
 
     });
 });
@@ -227,9 +257,8 @@ allIMG.addEventListener('dblclick', e => {
     </div>
     <div class="newInfo">
         <label for="newCategory"> category: </label>
-        <input name="newCategory" type="text" id="newCategory" value="${category}" required>
-        <br>
-        <small>if you edit category, reload page to see the change</small>
+       
+        <small>if you want to edit a category, delete & reconstruct</small>
     </div>
 
     <input type="submit" class="button" value="send">
@@ -310,7 +339,6 @@ formPopup.addEventListener('submit', e => {
 
     },3500);
 });
-
 
 
 
