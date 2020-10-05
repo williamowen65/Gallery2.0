@@ -107,6 +107,7 @@ db.collection('images').onSnapshot(snapshot => {
             const docPosition = doc.data().divClass;
             
 
+
         //     console.log(docCategory,docTitle,docDimensions,docSrc, docId);
 
         const imgDEMO = document.querySelectorAll('.tidy div');
@@ -285,7 +286,7 @@ allIMG.addEventListener('dblclick', e => {
     const title = e.target.nextElementSibling.firstElementChild.innerText;
     const dimensions = e.target.nextElementSibling.firstElementChild.nextElementSibling.innerText;
     const position = e.target.nextElementSibling.lastElementChild.innerText;
-    console.log(dimensions, e);
+    // console.log(dimensions, e);
     const editForm = document.querySelector('.editor');
     const backdrop = document.querySelector('.backdrop');
 
@@ -374,7 +375,23 @@ formPopup.addEventListener('submit', e => {
     const srcPop = formPopup.newImg.value;
     const dimensionsPop = formPopup.newDimensions.value;
     // const categoryPop = formPopup.newCategory.value;
-    const positionPop = formPopup.newPosition.value;
+    let positionPop = formPopup.newPosition.value;
+    let copyPositionPop = positionPop.split('');
+    copyPositionPop.splice(0,4);
+    const goldenNumber = copyPositionPop.join('');
+
+
+        function isEven(value){
+            if (value%2 == 0){
+                return 'even';
+            } else {
+                return 'odd';
+            }
+        }
+
+
+    const spanClass = isEven(goldenNumber);
+        // console.log(spanClass);
 
     const id = document.querySelector('img.demo').getAttribute('data-id');
     // console.log(id);
@@ -383,7 +400,8 @@ formPopup.addEventListener('submit', e => {
         "src": srcPop,
         "dimensions": dimensionsPop,
         // "category": categoryPop,
-        "divClass": positionPop
+        "divClass": positionPop,
+        "spanClass": spanClass
     });
 
     const editForm = document.querySelector('.editor');

@@ -309,12 +309,12 @@ p.ad{
 
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-@media only screen and (max-width: 588px){
+@media only screen and (max-width: 801px){
     .hideOnMobile{
         display: none;
     }
 }
-@media only screen and (min-width: 587px){
+@media only screen and (min-width: 800px){
     .mobile-nav{
         display: none;
     }
