@@ -371,13 +371,22 @@ const slideShow = (images) => {
     }
     console.log(randomShow.push(...images), randomShow);
 
+  
+  
+  
+  
     let x = 0;
     let y = 0;
 
     setInterval(() => {
         if(x === 5){
             x = 0;
-            
+            if(y === randomShow.length){
+                headerImgHandle.setAttribute('style','background-image: url("imgs/daffodil.jpg")');
+                setTimeout(()=>{
+                    y = 0;
+                }, 5000);
+            }
             console.log('next img')
             headerImgHandle.setAttribute('style','background-image: url(' + randomShow[y].src + ');');
             y = y + 1;
@@ -399,17 +408,6 @@ const slideShow = (images) => {
 
 };
 
-
-// setInterval(() => {
-    // let activeSlide = slides[Math.floor(Math.random() * slides.length)];
-    // console.log(slides.shift()); 
-
-// }, 5000);
-
-    // console.log(slides);
-
-   
-    // console.log(headerImgHandle.style);
 
 
 
