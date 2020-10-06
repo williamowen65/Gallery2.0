@@ -350,8 +350,38 @@ placesThingsPbtn.addEventListener('click', () => {
 });
 
 
+let slides = [];
 
 
+// const startSlide = (slides) => {
+//     console.log(slides);
+//     // console.clear();
+// };
+
+
+
+const slideShow = (image) => {
+    
+    slides.push(image);
+
+    
+    console.log(slides);
+
+};
+
+
+// setInterval(() => {
+    // let activeSlide = slides[Math.floor(Math.random() * slides.length)];
+    // let random = Math.floor(Math.random() * slides.length);
+
+    // console.log(slides.shift()); 
+
+// }, 5000);
+
+    // console.log(slides);
+
+    const headerImgHandle = document.querySelector('.header-img');
+    // console.log(headerImgHandle.style);
 
 
 
@@ -385,7 +415,13 @@ const addImage = (image) => {
 db.collection('images').get().then((snapshot) => {
     // console.log(snapshot.docs[1].data());
     snapshot.docs.forEach(doc => {
-        addImage(doc.data());
+        if(doc.data().header){
+            var slides = [];
+            slides.push(doc.data());
+            slideShow(slides);
+        } else {
+             addImage(doc.data());
+        }
     })
 }).catch(err => {
     console.log(err);
