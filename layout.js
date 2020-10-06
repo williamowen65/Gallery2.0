@@ -360,20 +360,21 @@ let slides = [];
 
 
 
-const slideShow = (image) => {
+const slideShow = (images) => {
     
-    slides.push(image);
+    let random = Math.floor(Math.random() * images.length);
+
+    let test = images[random];
 
     
-    console.log(slides);
+
+    console.log(test, random, images);
 
 };
 
 
 // setInterval(() => {
     // let activeSlide = slides[Math.floor(Math.random() * slides.length)];
-    // let random = Math.floor(Math.random() * slides.length);
-
     // console.log(slides.shift()); 
 
 // }, 5000);
@@ -412,13 +413,16 @@ const addImage = (image) => {
     }
 };
 
+var slidesCompilier = [];
+
 db.collection('images').get().then((snapshot) => {
     // console.log(snapshot.docs[1].data());
     snapshot.docs.forEach(doc => {
         if(doc.data().header){
-            var slides = [];
-            slides.push(doc.data());
-            slideShow(slides);
+            slidesCompilier.push(doc.data());
+            if(slidesCompilier.length === 3){
+                slideShow(slidesCompilier);
+            };
         } else {
              addImage(doc.data());
         }
