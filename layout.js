@@ -352,7 +352,7 @@ placesThingsPbtn.addEventListener('click', () => {
 
 let slides = [];
 
-
+const headerImgHandle = document.querySelector('.header-img');
 // const startSlide = (slides) => {
 //     console.log(slides);
 //     // console.clear();
@@ -362,13 +362,40 @@ let slides = [];
 
 const slideShow = (images) => {
     
-    let random = Math.floor(Math.random() * images.length);
+    let randomShow = [];
+    for(i = 0; i <= images.length; i++){
+        let random = Math.floor(Math.random() * images.length);
+        randomShow.push(images[random]);
+        images.splice(random, 1)
+        // console.log(images);
+    }
+    console.log(randomShow.push(...images), randomShow);
 
-    let test = images[random];
+    let x = 0;
+    let y = 0;
 
-    
+    setInterval(() => {
+        if(x === 5){
+            x = 0;
+            
+            console.log('next img')
+            headerImgHandle.setAttribute('style','background-image: url(' + randomShow[y].src + ');');
+            y = y + 1;
+            console.log('y is: ' + y);
+        } else {
+            x++;
+        }
 
-    console.log(test, random, images);
+        console.log(x);
+    }, 1000);
+
+
+
+
+
+
+
+
 
 };
 
@@ -381,7 +408,7 @@ const slideShow = (images) => {
 
     // console.log(slides);
 
-    const headerImgHandle = document.querySelector('.header-img');
+   
     // console.log(headerImgHandle.style);
 
 
