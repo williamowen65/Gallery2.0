@@ -34,6 +34,27 @@ form.addEventListener('submit', e => {
 
 });
 
+/* Header Slideshow editing*/
+const editSlideshow = document.querySelector('h2');
+const container = document.querySelector('.slideShow');
+
+const headerImgs = (doc, id) => {
+    console.log(doc, id);
+
+    let html = `
+    <div class="header" data-id="${id}">
+        <img src="${doc.src}" alt="">        
+    </div>
+    `;
+    console.log(html);
+    editSlideshow.addEventListener('click', () => {
+        editSlideshow.innerHTML += html;
+    });
+};
+
+
+
+
 /* dashboard, see which files are where and their info, be able to edit */
 
 
@@ -87,6 +108,10 @@ const deleteImage = (id) => {
   
 };
 
+
+
+
+
 db.collection('images').onSnapshot(snapshot => {
     // console.log(snapshot.docChanges());
     snapshot.docChanges().forEach(change => {
@@ -94,7 +119,12 @@ db.collection('images').onSnapshot(snapshot => {
         const doc = change.doc
         // console.log(doc);
         if(change.type === 'added'){
-            addImage(doc.data(), doc.id);
+            if(doc.data().header){
+            //    console.log(doc.data());
+               headerImgs(doc.data(), doc.id)
+                } else {
+                    addImage(doc.data(), doc.id);
+                }
             // console.log(doc.data());
         } else if (change.type === 'removed'){
             deleteImage(doc.id);
@@ -174,7 +204,7 @@ db.collection('images').onSnapshot(snapshot => {
 
 
 
-/* *******ACTIVE ZONE***************/
+// /* *****AUtomats the feilds*******/
 const radio1 = document.querySelector('.radio1');
 const radios = document.querySelectorAll('.radio');
 

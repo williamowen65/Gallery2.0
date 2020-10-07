@@ -1,7 +1,4 @@
-body{
-    
-   
-}
+
 .addIMG{
     margin-bottom: 50px;
     padding: 20px 10%;
@@ -22,6 +19,22 @@ i{
 }
 .radio{
     display: inline-block;
+}
+h2{
+    position: absolute;
+    top: 30px;
+    right: 10%;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: cadetblue;
+}
+h2:hover{
+    color: white;
+    cursor: pointer;
+}
+.slideShow{
+    z-index: 5;
 }
 
 
