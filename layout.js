@@ -350,6 +350,19 @@ placesThingsPbtn.addEventListener('click', () => {
 });
 
 
+// imgs/daffodil.jpg
+
+/* Default Header Image */
+const headerImg = (image) => {
+    let slot = document.querySelector('.header-img');
+    let html = `
+        <div class="header-img" style="background-image: url(${image});"></div>
+    `;
+
+    slot += html;
+
+}
+
 let slides = [];
 
 const headerImgHandle = document.querySelector('.header-img');
@@ -448,6 +461,9 @@ db.collection('images').get().then((snapshot) => {
             if(slidesCompilier.length === 3){
                 slideShow(slidesCompilier);
             };
+        } else if (!doc.data().header){
+            /* Deafult Header */
+            headerImg(doc.data());
         } else {
              addImage(doc.data());
         }

@@ -38,8 +38,30 @@ form.addEventListener('submit', e => {
 const editSlideshow = document.querySelector('h2');
 const container = document.querySelector('.slideShow');
 // const form = document.querySelector('.new-image');
+const defaultImg = document.querySelector('.default');
+//*** Reaching into layout.html here */
+// const 
+
+console.log(defaultImg);
+
+const headerDefault = (doc) => {
+    const template = (src, id) => {
+        let html = `
+        <div class="header" data-id="${id}">
+            <img src="${src}" alt="">        
+        </div>
+        `;
+        defaultImg.innerHTML += html;
+    }
+        template(doc.src, doc.id);
+};
+
 const headerImgs = (doc) => {
-    // console.log(doc, id);
+    const id = doc.id;
+
+    // console.log(doc[0].data().header);
+
+
     
     const template = (doc, id) => {
         let html = `
@@ -47,22 +69,24 @@ const headerImgs = (doc) => {
             <img src="${doc.src}" alt="">        
         </div>
         `;
-        console.log(html);
+        // console.log(html);
         editSlideshow.addEventListener('click', () => {
-            editSlideshow.innerHTML += html;
-            console.log(form);
+            container.innerHTML += html;
+            
         });
     };
+    // console.log(do);
+    console.log(Array.isArray(doc),doc.src);
     
-    doc.forEach(doc =>{
-        template(doc.data(), doc.id);
-        console.log(doc.id);
-
-      
-    });
-    
-    // console.log(html);
-
+    if(Array.isArray(doc)){
+        // console.log('hi');
+        doc.forEach(doc =>{
+            template(doc.data(), doc.id);
+        });
+    } else {
+        template(doc.data(), doc.id)
+    }
+        
 };
 
 
@@ -124,7 +148,7 @@ const deleteImage = (id) => {
 
 
 let testArray = [];
-// console.log(testArray);
+console.log(testArray, Array.isArray(testArray));
 
 
 db.collection('images').onSnapshot(snapshot => {
@@ -133,19 +157,26 @@ db.collection('images').onSnapshot(snapshot => {
         // console.log(change);
         const doc = change.doc
         // console.log(doc);
+        // console.log(doc.data());
         if(change.type === 'added'){
-            if(doc.data().header){
+            if(doc.data().header === true){
                 testArray.push(doc)
-            //    console.log(doc.data());
-            if(testArray.length === 3){
+
+                console.log(doc.data());
+                if(testArray.length === 3){
                 headerImgs(testArray);
                 // console.log(testArray);
-
-            };
-            
-                } else {
-                    addImage(doc.data(), doc.id);
-                }
+                };
+            } 
+            else if (doc.data().headerDefault){
+                /* Deafult Header */
+                // headerImgs(doc.data());
+                console.log(typeof(doc), doc.data(), doc.id);
+                headerImgs(doc);
+            } 
+            else {
+                 addImage(doc.data(), doc.id);
+            }
             // console.log(doc.data());
         } else if (change.type === 'removed'){
             deleteImage(doc.id);

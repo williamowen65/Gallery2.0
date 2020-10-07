@@ -36,10 +36,20 @@ h2:hover{
     cursor: pointer;
 }
 .slideShow{
-    z-index: 5;
-    po
+    z-index: 2;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-auto-rows: 100px;
+    row-gap: 30px;
+    background-color: rgba(255, 255, 255, 0.8);
 }
-
+.slideShow .header{
+    grid-column: 1;
+}
 .hide{
     display: none;
 }
