@@ -37,19 +37,32 @@ form.addEventListener('submit', e => {
 /* Header Slideshow editing*/
 const editSlideshow = document.querySelector('h2');
 const container = document.querySelector('.slideShow');
+// const form = document.querySelector('.new-image');
+const headerImgs = (doc) => {
+    // console.log(doc, id);
+    
+    const template = (doc, id) => {
+        let html = `
+        <div class="header" data-id="${id}">
+            <img src="${doc.src}" alt="">        
+        </div>
+        `;
+        console.log(html);
+        editSlideshow.addEventListener('click', () => {
+            editSlideshow.innerHTML += html;
+            console.log(form);
+        });
+    };
+    
+    doc.forEach(doc =>{
+        template(doc.data(), doc.id);
+        console.log(doc.id);
 
-const headerImgs = (doc, id) => {
-    console.log(doc, id);
-
-    let html = `
-    <div class="header" data-id="${id}">
-        <img src="${doc.src}" alt="">        
-    </div>
-    `;
-    console.log(html);
-    editSlideshow.addEventListener('click', () => {
-        editSlideshow.innerHTML += html;
+      
     });
+    
+    // console.log(html);
+
 };
 
 
@@ -110,6 +123,8 @@ const deleteImage = (id) => {
 
 
 
+let testArray = [];
+// console.log(testArray);
 
 
 db.collection('images').onSnapshot(snapshot => {
@@ -120,8 +135,14 @@ db.collection('images').onSnapshot(snapshot => {
         // console.log(doc);
         if(change.type === 'added'){
             if(doc.data().header){
+                testArray.push(doc)
             //    console.log(doc.data());
-               headerImgs(doc.data(), doc.id)
+            if(testArray.length === 3){
+                headerImgs(testArray);
+                // console.log(testArray);
+
+            };
+            
                 } else {
                     addImage(doc.data(), doc.id);
                 }

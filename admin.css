@@ -2,6 +2,8 @@
 .addIMG{
     margin-bottom: 50px;
     padding: 20px 10%;
+    position: relative;
+    z-index: 1;
 }
 i{
     transform: translateY(2px);
@@ -35,9 +37,12 @@ h2:hover{
 }
 .slideShow{
     z-index: 5;
+    po
 }
 
-
+.hide{
+    display: none;
+}
 
 .catBlock input, .catBlock label{
     padding: 30px 10px 0 10px;
