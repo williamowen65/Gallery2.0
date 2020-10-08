@@ -19,7 +19,7 @@ form.addEventListener('submit', e => {
 
     db.collection('images').add(image).then(() => {
     // console.log('image added');
-    // form.clear();
+    form.reset();
     }).catch(err => {
         console.log(err);
     });
@@ -34,61 +34,181 @@ form.addEventListener('submit', e => {
 
 });
 
+
+
+
+
 /* Header Slideshow editing*/
 const editSlideshow = document.querySelector('h2');
 const container = document.querySelector('.slideShow');
 // const form = document.querySelector('.new-image');
 const defaultImg = document.querySelector('.default');
-//*** Reaching into layout.html here */
-// const 
 
-console.log(defaultImg);
 
-const headerDefault = (doc) => {
-    const template = (src, id) => {
-        let html = `
-        <div class="header" data-id="${id}">
-            <img src="${src}" alt="">        
-        </div>
-        `;
-        defaultImg.innerHTML += html;
-    }
-        template(doc.src, doc.id);
-};
+    /* Delete Slides */
+
+    container.addEventListener('click', e => {
+        if(e.target.parentElement.classList.contains('deleteSlide')){
+           const id = e.target.parentElement.parentElement.getAttribute('data-id');
+           e.target.parentElement.parentElement.remove(); 
+           console.log(id);
+            db.collection('images').doc(id).delete();
+            // console.log('img deleted?');
+            const allSlideImgs = document.querySelectorAll('.header');
+            allSlideImgs.forEach(item => {
+                const id = item.getAttribute('data-id');
+                const src = item.firstElementChild.getAttribute('src');
+                const total = item.getAttribute('total');
+                console.log(id, src, total);
+                db.collection('images').doc(id).update({
+                    "header": true,
+                    "src": src,
+                    "total": total - 1
+                })
+            });
+        }
+    });
+
+
+
+
+editSlideshow.addEventListener('click', () => {
+        
+        
+    container.classList.remove('hide');
+    
+    const EXIT = document.querySelector('.close');
+    EXIT.addEventListener('click', () => {
+        container.classList.add('hide');
+        const addSlidePop = document.querySelector('.addSlidePop');
+        addSlidePop.classList.add('hide');
+    });
+
+});
+
+
+
 
 const headerImgs = (doc) => {
     const id = doc.id;
 
     // console.log(doc[0].data().header);
-
-
-    
     const template = (doc, id) => {
         let html = `
-        <div class="header" data-id="${id}">
+        <div class="header" data-id="${id}" total=${doc.total}>
             <img src="${doc.src}" alt="">        
+            <div class="deleteSlide">
+                <h3>Delete Image</h3>
+                
+            </div>
         </div>
         `;
+        // container.innerHTML = "";
+        container.innerHTML += html;
         // console.log(html);
-        editSlideshow.addEventListener('click', () => {
-            container.innerHTML += html;
-            
-        });
+       
     };
-    // console.log(do);
-    console.log(Array.isArray(doc),doc.src);
+    // console.log(Array.isArray(doc),doc.src);
     
     if(Array.isArray(doc)){
         // console.log('hi');
         doc.forEach(doc =>{
+            const allSlides = document.querySelectorAll('.header');
+            allSlides.forEach(slide => {
+                const id = slide.getAttribute('data-id');
+                if(doc.id == id){
+                    slide.remove();
+                } 
+            });
+
             template(doc.data(), doc.id);
         });
     } else {
-        template(doc.data(), doc.id)
+            let html = `
+            <div class="headerDefault" data-id="${doc.id}">
+                <img src="${doc.data().src}" alt="">        
+            </div>
+            `;
+            defaultImg.innerHTML += html;
     }
-        
-};
 
+ 
+     /* ADD a Slide */
+                
+     const addSlideForm = document.querySelector('.addNewSlide');
+     
+    // console.log(addSlideForm);
+    
+    
+     addSlideForm.addEventListener('submit', e => {
+         e.preventDefault();
+         let newSlideSrc = addSlideForm.src.value;
+         const allSlides = document.querySelectorAll('.header');
+    
+         console.log(newSlideSrc, 'hi', allSlides);
+    
+         const readyShip = {
+             header: true,
+             src: newSlideSrc,
+             total: allSlides.length + 1
+         }
+         // console.log(allSlides);
+    
+         db.collection('images').add(readyShip).then(()=>{
+             addSlideForm.reset();
+            //  console.log('sent img');
+         }).catch(err => {
+             console.log(err);
+             
+         });
+
+        // const allSlides = document.querySelectorAll('.header');
+        allSlides.forEach(slide => {
+            const id = slide.getAttribute('data-id');
+            const src = slide.firstElementChild.getAttribute('src');
+            // console.log(id, src);
+            db.collection('images').doc(id).update({
+                "total": allSlides.length + 1,
+                "src": src
+            });
+
+            // db.collection('images').doc(id).delete();
+        });
+        const imageSent = document.querySelector('.imageSent');
+
+    
+         imageSent.classList.remove('hide');
+         setTimeout(() => {
+            const addSlidePop = document.querySelector('.addSlidePop');
+           
+             addSlidePop.classList.add('hide');
+             imageSent.classList.add('hide');
+             console.log('timer');
+  
+            const EXIT = document.querySelector('.close');
+            EXIT.addEventListener('click', () => {
+                 container.classList.add('hide');
+                const addSlidePop = document.querySelector('.addSlidePop');
+                 addSlidePop.classList.add('hide');
+             });    
+         },3000);
+    
+    
+         /* This is if modified*/
+        //  const allSlides = document.querySelectorAll('.header');
+    
+        //  allSlides.forEach(slide => {
+        //      const id = slide.getAttribute('data-id');
+        //      const src = slide.getAttribute('src');
+            //  db.collection('images').doc(id).update({
+            //          "total": allSlides.length,
+            //          "src": src
+            //  });
+        //  });
+    
+    
+     });
+};
 
 
 
@@ -148,30 +268,32 @@ const deleteImage = (id) => {
 
 
 let testArray = [];
-console.log(testArray, Array.isArray(testArray));
+// console.log(testArray, Array.isArray(testArray));
 
-
+/* EVENT LISTENER ON THE DATABASE */
 db.collection('images').onSnapshot(snapshot => {
     // console.log(snapshot.docChanges());
     snapshot.docChanges().forEach(change => {
         // console.log(change);
         const doc = change.doc
         // console.log(doc);
-        // console.log(doc.data());
+      
         if(change.type === 'added'){
-            if(doc.data().header === true){
+            if (doc.data().header === true){
                 testArray.push(doc)
-
-                console.log(doc.data());
-                if(testArray.length === 3){
-                headerImgs(testArray);
-                // console.log(testArray);
+                
+                let totalSlides = doc.data().total;
+                // console.log(totalSlides, testArray);
+                // console.log(doc.data());
+                if(testArray.length == totalSlides){
+                    headerImgs(testArray);
+                    // console.log(testArray[0].data(), testArray[0].id);
                 };
             } 
             else if (doc.data().headerDefault){
                 /* Deafult Header */
                 // headerImgs(doc.data());
-                console.log(typeof(doc), doc.data(), doc.id);
+                // console.log(typeof(doc), doc.data(), doc.id);
                 headerImgs(doc);
             } 
             else {
@@ -180,8 +302,11 @@ db.collection('images').onSnapshot(snapshot => {
             // console.log(doc.data());
         } else if (change.type === 'removed'){
             deleteImage(doc.id);
+        } else if (change.type === 'modified' && doc.data().header){
+            // console.log('hi');
         } else if (change.type === 'modified'){
-        //     const docCategory = doc.data().category;
+            /* Modifided content just affects DOM  */
+     //     const docCategory = doc.data().category;
             const docTitle = doc.data().title;
             const docDimensions = doc.data().dimensions;
             const docSrc = doc.data().src;
@@ -216,10 +341,12 @@ db.collection('images').onSnapshot(snapshot => {
         //             } else if(docCategory === "printPlaces"){
         //                 printPlaces.innerHTML += image;
         //             } 
-            };
-        }
-        );
-        }
+
+                     };
+                }
+            );
+        }   
+    })
 
         /* counts for category */
 
@@ -256,87 +383,83 @@ db.collection('images').onSnapshot(snapshot => {
 
 
 
-// /* *****AUtomats the feilds*******/
-const radio1 = document.querySelector('.radio1');
-const radios = document.querySelectorAll('.radio');
+        // /* *****AUtomats the feilds*******/
+        const radio1 = document.querySelector('.radio1');
+        const radios = document.querySelectorAll('.radio');
 
-const numberOF = document.querySelector('span.numberOF');
-const numberOA = document.querySelector('span.numberOA');
-const numberOP = document.querySelector('span.numberOP');
-const numberPF = document.querySelector('span.numberPF');
-const numberPA = document.querySelector('span.numberPA');
-const numberPP = document.querySelector('span.numberPP');
+        const numberOF = document.querySelector('span.numberOF');
+        const numberOA = document.querySelector('span.numberOA');
+        const numberOP = document.querySelector('span.numberOP');
+        const numberPF = document.querySelector('span.numberPF');
+        const numberPA = document.querySelector('span.numberPA');
+        const numberPP = document.querySelector('span.numberPP');
 
-const OF = Number(numberOF.innerText) + 1;
-const OA = Number(numberOA.innerText) + 1;
-const OP = Number(numberOP.innerText) + 1;
-const PF = Number(numberPF.innerText) + 1;
-const PA = Number(numberPA.innerText) + 1;
-const PP = Number(numberPP.innerText) + 1;
+        const OF = Number(numberOF.innerText) + 1;
+        const OA = Number(numberOA.innerText) + 1;
+        const OP = Number(numberOP.innerText) + 1;
+        const PF = Number(numberPF.innerText) + 1;
+        const PA = Number(numberPA.innerText) + 1;
+        const PP = Number(numberPP.innerText) + 1;
 
-function isEven(value){
-    if (value%2 == 0){
-        return true;
-    } else {
-        return false;
-    }
-}
+        function isEven(value){
+            if (value%2 == 0){
+                return true;
+            } else {
+                return false;
+            }
+        }
 
 
-radios.forEach((radio) => {
-    radio.addEventListener('click', radio => {
-       if(radio.target.parentElement.classList[0] === 'radio1'){
-        // console.log("img" + numberOF.innerText);
-        form.divClass.value = "img" + OF;
-        if(isEven(OF)){
-            form.spanClass.value = 'even';
-        } else {
-            form.spanClass.value = 'odd';
-        }
-       } else if(radio.target.parentElement.classList[0] === 'radio2'){
-        form.divClass.value = "img" + OA;
-        if(isEven(OA)){
-            form.spanClass.value = 'even';
-        } else {
-            form.spanClass.value = 'odd';
-        }
-       } else if(radio.target.parentElement.classList[0] === 'radio3'){
-        form.divClass.value = "img" + OP;
-        if(isEven(OP)){
-            form.spanClass.value = 'even';
-        } else {
-            form.spanClass.value = 'odd';
-        }
-       } else if(radio.target.parentElement.classList[0] === 'radio4'){
-        form.divClass.value = "img" + PF;
-        if(isEven(PF)){
-            form.spanClass.value = 'even';
-        } else {
-            form.spanClass.value = 'odd';
-        }
-       } else if(radio.target.parentElement.classList[0] === 'radio5'){
-        form.divClass.value = "img" + PA;
-        if(isEven(PA)){
-            form.spanClass.value = 'even';
-        } else {
-            form.spanClass.value = 'odd';
-        }
-       } else if(radio.target.parentElement.classList[0] === 'radio6'){
-        form.divClass.value = "img" + PP;
-        if(isEven(PP)){
-            form.spanClass.value = 'even';
-        } else {
-            form.spanClass.value = 'odd';
-        }
-       } 
+        radios.forEach((radio) => {
+            radio.addEventListener('click', radio => {
+            if(radio.target.parentElement.classList[0] === 'radio1'){
+                // console.log("img" + numberOF.innerText);
+                form.divClass.value = "img" + OF;
+                if(isEven(OF)){
+                    form.spanClass.value = 'even';
+                } else {
+                    form.spanClass.value = 'odd';
+                }
+            } else if(radio.target.parentElement.classList[0] === 'radio2'){
+                form.divClass.value = "img" + OA;
+                if(isEven(OA)){
+                    form.spanClass.value = 'even';
+                } else {
+                    form.spanClass.value = 'odd';
+                }
+            } else if(radio.target.parentElement.classList[0] === 'radio3'){
+                form.divClass.value = "img" + OP;
+                if(isEven(OP)){
+                    form.spanClass.value = 'even';
+                } else {
+                    form.spanClass.value = 'odd';
+                }
+            } else if(radio.target.parentElement.classList[0] === 'radio4'){
+                form.divClass.value = "img" + PF;
+                if(isEven(PF)){
+                    form.spanClass.value = 'even';
+                } else {
+                    form.spanClass.value = 'odd';
+                }
+            } else if(radio.target.parentElement.classList[0] === 'radio5'){
+                form.divClass.value = "img" + PA;
+                if(isEven(PA)){
+                    form.spanClass.value = 'even';
+                } else {
+                    form.spanClass.value = 'odd';
+                }
+            } else if(radio.target.parentElement.classList[0] === 'radio6'){
+                form.divClass.value = "img" + PP;
+                if(isEven(PP)){
+                    form.spanClass.value = 'even';
+                } else {
+                    form.spanClass.value = 'odd';
+                }
+            } 
+            });
+        });
     });
-});
-
-
-
-
-    });
-});
+// );
 
 
 
@@ -500,6 +623,22 @@ formPopup.addEventListener('submit', e => {
 
     },3500);
 });
+
+
+
+
+
+
+
+
+
+
+//* CALLED FROM INSIDE HTML*/
+const addSlideFunction = () => {
+    const addSlidePop = document.querySelector('.addSlidePop');
+    addSlidePop.classList.remove('hide');
+};
+
 
 
 

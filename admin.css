@@ -40,20 +40,77 @@ h2:hover{
     position: fixed;
     top: 0px;
     left: 0px;
-    padding: 40px 20px;
+    padding: 150px 60px;
+    /* padding: 40px 20px; */
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-auto-rows: 100px;
-    row-gap: 30px;
-    background-color: rgba(255, 255, 255, 0.8);
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-auto-rows: 1fr;
+    gap: 30px;
+    background-color: rgba(255, 255, 255, 0.95);
+    max-height: 100vh;
+    overflow-y: scroll;
 }
-.slideShow .header{
-    grid-column: 1;
-}
+
+
+
 .hide{
     display: none;
 }
+.addSlide{
+    position: absolute;
+    left:50%;
+    top: 50px;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 20px 20px 20px 20px;
+    padding: 5px 10px 5px 14px;
+    transform: translateX(-50%);
+}
+.addSlide:hover{
+    cursor: pointer;
+    background-color: burlywood;
+}
 
+
+
+.close{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: red;
+    z-index: 3;
+}
+.close:hover{
+    cursor: pointer;
+}
+.slideShow .default, .defaultText{
+   place-self: center;
+}
+.addSlidePop{
+    position: absolute;
+    top: 140px;
+    left: 50%;
+    width: 100%;
+    height: 150px;
+    text-align: center;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px 10px;
+}
+
+.slideShow img{
+    width:100%;
+    padding-top: 0px;
+}
+.slideShow img:hover{
+    cursor: default;
+}
+.slideShow h3{
+    font-size: 20px;
+}
+.deleteSlide:hover{
+    cursor: pointer;
+}
 .catBlock input, .catBlock label{
     padding: 30px 10px 0 10px;
 }
@@ -123,6 +180,7 @@ img.demo:hover{
    background-color:white;
    border: 1px solid black;
   max-width: 510px;
+  z-index: 3;
 }
 .backdrop p:first-child{
     text-align: center;
@@ -144,7 +202,7 @@ img.demo:hover{
 
 .editor{
     margin: 0 5%;
-    
+   
 }
 
 .editor img{

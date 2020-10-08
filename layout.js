@@ -398,7 +398,7 @@ const slideShow = (images) => {
                 headerImgHandle.setAttribute('style','background-image: url("imgs/daffodil.jpg")');
                 setTimeout(()=>{
                     y = 0;
-                }, 5000);
+                }, 7000);
             }
             console.log('next img')
             headerImgHandle.setAttribute('style','background-image: url(' + randomShow[y].src + ');');
@@ -410,14 +410,6 @@ const slideShow = (images) => {
 
         console.log(x);
     }, 1000);
-
-
-
-
-
-
-
-
 
 };
 
@@ -456,15 +448,19 @@ var slidesCompilier = [];
 db.collection('images').get().then((snapshot) => {
     // console.log(snapshot.docs[1].data());
     snapshot.docs.forEach(doc => {
+        console.log(doc.data());
         if(doc.data().header){
+            const total = doc.data().total;
             slidesCompilier.push(doc.data());
-            if(slidesCompilier.length === 3){
+            if(slidesCompilier.length === total){
                 slideShow(slidesCompilier);
             };
-        } else if (!doc.data().header){
+        } 
+        else if (doc.data().headerDefault){
             /* Deafult Header */
             headerImg(doc.data());
-        } else {
+        } 
+        else {
              addImage(doc.data());
         }
     })
