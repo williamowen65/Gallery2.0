@@ -356,7 +356,9 @@ placesThingsPbtn.addEventListener('click', () => {
 const headerImg = (image) => {
     let slot = document.querySelector('.header-img');
     slot.setAttribute("style","background-image: url(" + image.src + ")");
-    console.log(slot);
+    // console.log(slot);
+  
+
 
 }
 
@@ -450,9 +452,11 @@ db.collection('images').get().then((snapshot) => {
         if(doc.data().header){
             const total = doc.data().total;
             slidesCompilier.push(doc.data());
-            if(slidesCompilier.length === total){
+            if(slidesCompilier.length === total -1){
                 slideShow(slidesCompilier);
             };
+    //// IF THE SLIDE SHOW HAS ISSUES CHECK HERE FIRST//        
+            console.log('hi', total);
         } 
         else if (doc.data().headerDefault){
             /* Deafult Header */

@@ -140,6 +140,12 @@ i{
     text-align: center;
     font-size: 20px;
 }
+span.subscript{
+    font-size: 23px;
+    position: relative;
+    transform: translateY(30px);
+    opacity: 0.1;
+}
 .originals img{
     max-width: 100%;
 }
