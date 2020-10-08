@@ -57,7 +57,7 @@ hamburger.addEventListener('click', () => {
 
     const result = [...hiddenElements].filter(element => !element.classList.contains('hidden'));
 
-        console.log(result);
+        // console.log(result);
 
 
         if(result[0] && !mobileNav.classList.contains('hidden')){
@@ -355,11 +355,8 @@ placesThingsPbtn.addEventListener('click', () => {
 /* Default Header Image */
 const headerImg = (image) => {
     let slot = document.querySelector('.header-img');
-    let html = `
-        <div class="header-img" style="background-image: url(${image});"></div>
-    `;
-
-    slot += html;
+    slot.setAttribute("style","background-image: url(" + image.src + ")");
+    console.log(slot);
 
 }
 
@@ -382,7 +379,7 @@ const slideShow = (images) => {
         images.splice(random, 1)
         // console.log(images);
     }
-    console.log(randomShow.push(...images), randomShow);
+    // console.log(randomShow.push(...images), randomShow);
 
   
   
@@ -400,15 +397,15 @@ const slideShow = (images) => {
                     y = 0;
                 }, 7000);
             }
-            console.log('next img')
+            // console.log('next img')
             headerImgHandle.setAttribute('style','background-image: url(' + randomShow[y].src + ');');
             y = y + 1;
-            console.log('y is: ' + y);
+            // console.log('y is: ' + y);
         } else {
             x++;
         }
 
-        console.log(x);
+        // console.log(x);
     }, 1000);
 
 
@@ -449,7 +446,7 @@ var slidesCompilier = [];
 db.collection('images').get().then((snapshot) => {
     // console.log(snapshot.docs[1].data());
     snapshot.docs.forEach(doc => {
-        console.log(doc.data());
+        // console.log(doc.data());
         if(doc.data().header){
             const total = doc.data().total;
             slidesCompilier.push(doc.data());

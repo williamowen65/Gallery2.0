@@ -86,7 +86,7 @@ editSlideshow.addEventListener('click', () => {
 
 });
 
-
+     
 
 
 
@@ -140,7 +140,7 @@ const headerImgs = (doc) => {
             defaultImg.innerHTML += html;
 
             
-            console.log(id);
+            // console.log(id);
     }
 
  
@@ -217,18 +217,56 @@ const headerImgs = (doc) => {
             //  });
         //  });
     
+
+   
     
      });
 
 
-     /* Change Default Image */
-    const changeImageBTN = document.querySelector('.change');
-    const changeImageDIV = document.querySelector('.changeImage');
-    changeImageBTN.addEventListener('click', () => {
-        changeImageDIV.classList.toggle('hide');
+   
+
+
+
+    const formDefaultImage = document.querySelector('form.defaultImg');
+    formDefaultImage.addEventListener('submit', e => {
+        e.preventDefault();
+
+        const defaultImgDOM = document.querySelector('.headerDefault');
+        const defaultID = defaultImgDOM.getAttribute('data-id');
+    
+        console.log(defaultImgDOM.remove());
+        db.collection('images').doc(defaultID).delete();
+    
+        const newSRC = formDefaultImage.newDefaultImg.value;
+        console.log(newSRC);
+
+
+        let image = {
+            "headerDefault": true,
+            "src": newSRC
+        }
+        
+        db.collection('images').add(image);
+        setTimeout(() => {
+            changeImageDIV.classList.add('hide');
+            formDefaultImage.reset();
+        }, 3000);
+        
     });
 
+ /* Change Default Image */
+ const changeImageBTN = document.querySelector('.change');
+ const changeImageDIV = document.querySelector('.changeImage');
+ console.log(changeImageDIV);
+ 
+ changeImageBTN.addEventListener('click', e => {
+    e.stopImmediatePropagation();
+    changeImageDIV.classList.toggle('hide');
+ });
+ 
+
 };
+
 
 
 
