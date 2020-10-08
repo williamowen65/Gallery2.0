@@ -411,6 +411,7 @@ const slideShow = (images) => {
         console.log(x);
     }, 1000);
 
+
 };
 
 

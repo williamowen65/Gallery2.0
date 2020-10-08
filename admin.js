@@ -89,8 +89,13 @@ editSlideshow.addEventListener('click', () => {
 
 
 
+
+
+
+
+
 const headerImgs = (doc) => {
-    const id = doc.id;
+    
 
     // console.log(doc[0].data().header);
     const template = (doc, id) => {
@@ -124,12 +129,18 @@ const headerImgs = (doc) => {
             template(doc.data(), doc.id);
         });
     } else {
+            const id = doc.id;
+            const defaultImg = document.querySelector('.default');
+
             let html = `
             <div class="headerDefault" data-id="${doc.id}">
                 <img src="${doc.data().src}" alt="">        
             </div>
             `;
             defaultImg.innerHTML += html;
+
+            
+            console.log(id);
     }
 
  
@@ -208,7 +219,18 @@ const headerImgs = (doc) => {
     
     
      });
+
+
+     /* Change Default Image */
+    const changeImageBTN = document.querySelector('.change');
+    const changeImageDIV = document.querySelector('.changeImage');
+    changeImageBTN.addEventListener('click', () => {
+        changeImageDIV.classList.toggle('hide');
+    });
+
 };
+
+
 
 
 
@@ -292,6 +314,7 @@ db.collection('images').onSnapshot(snapshot => {
             } 
             else if (doc.data().headerDefault){
                 /* Deafult Header */
+                // console.log(doc.data());
                 // headerImgs(doc.data());
                 // console.log(typeof(doc), doc.data(), doc.id);
                 headerImgs(doc);
@@ -636,7 +659,7 @@ formPopup.addEventListener('submit', e => {
 //* CALLED FROM INSIDE HTML*/
 const addSlideFunction = () => {
     const addSlidePop = document.querySelector('.addSlidePop');
-    addSlidePop.classList.remove('hide');
+    addSlidePop.classList.toggle('hide');
 };
 
 
