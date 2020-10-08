@@ -535,9 +535,8 @@ allIMG.addEventListener('dblclick', e => {
     </div>
     <div class="newInfo">
         <label for="newDimensions"> dimensions: </label>
-        <input name="newDimensions" type="text" id="newDimensions" value="${dimensions}" required><br>
-        <small>NOTE: Use single quotes twice, not double quotes</small><br>
-       <small> Use <code>&lt;br&gt;</code> between sets of sizes (inserting a break)</small>
+        <input name="newDimensions" type="text" id="newDimensions" value='${dimensions}' required><br>
+       <small> NOTE: Use <code>&lt;br&gt;</code> between sets of sizes (inserting a break)</small>
     </div>
     <div class="newInfo">
     <label for="newPosition"> position: </label>
