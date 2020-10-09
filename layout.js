@@ -25,6 +25,17 @@ const hamburger = document.querySelector('.hamburger');
 const mobileNav = document.querySelector('.mobile-nav');
 const hiddenElements = document.querySelectorAll('.hide');
 const footer = document.querySelector('footer');
+const BethOwenBTN = document.querySelector('.logo');
+const aboutMeContainer = document.querySelector('.aboutMeContainer');
+
+BethOwenBTN.addEventListener('click', () => {
+    aboutMeContainer.classList.toggle('hidden');
+});
+aboutMeContainer.addEventListener('click', e => {
+    if(e.target.classList == 'aboutMeContainer'){
+        aboutMeContainer.classList.toggle('hidden');
+    };
+});
 
 
 hamburger.addEventListener('click', () => {
