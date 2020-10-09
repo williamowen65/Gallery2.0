@@ -239,6 +239,7 @@ footer{
         top: -250px;
         left: -100%;
     }
+    
 }
 @media only screen and (min-width: 1250px){
     
@@ -266,3 +267,87 @@ footer{
  
        
 }
+
+@media only screen and (min-width: 501px){
+
+
+              /*   //   Opening Section    //     */
+    
+             
+             .header-img{
+                grid-column: 1/-1;
+                background-size: cover;
+                background-position: center;
+            }
+            header{
+                grid-column: 1/-1;
+                color: tan;
+                display: flex;
+                overflow: hidden;
+            }
+            .logo{
+                display: inline-block;
+                text-align: center;
+                flex-grow: 1;
+                min-width: 150px;
+                transform: translate(10px,12px);
+            }
+            .bethOwen{
+                margin: 5px 0 0;
+                display: inline-block;
+                font-size: 28px;
+            }
+            nav.hideOnMobile{
+                display: inline-block;
+            }
+            .watercolor{
+                margin-top: 0;
+                
+            }
+            .mobile-nav{
+                display: none;
+            }
+            nav{
+               display: inline-block;
+               text-align: center;
+               padding-top: 5px;
+               font-size: 20px;
+               min-width: 500px;
+               max-width: 1300px;
+               flex-grow: 2;
+            } 
+            ul{
+                list-style-type: none;
+                padding-inline-start: 0;
+                background-color: rgb(6, 2, 39);
+                display: inline-block;
+                width: 70%;
+                transform: translate(-50px,10px);
+            }
+            li{
+               display: inline-block; 
+                padding: 0 0;
+                width: 100px;
+            }
+            li a{
+                text-decoration: none;
+                color: inherit;
+            }
+            .contact{
+                display: inline-block;
+                text-align: center;
+                padding-top: 33px;
+                margin-bottom: 0;
+                flex-grow: 1;
+                font-size: 23px;
+                transform: translateX(-90px);
+
+            }
+            div a{
+                color: tan;
+                text-decoration: none;
+            }
+            i.hamburger {
+                display: none;
+            }
+        }
