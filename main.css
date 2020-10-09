@@ -169,7 +169,7 @@ p.aboutMeInfo{
     padding: 0 5% 70px;
     background-color: rgb(6, 2, 39);
     color: white;
-    height: 78vh;
+    /* height: 78vh; */
     animation: riseAndFade 1.5s ease-in-out forwards;
 
 }
@@ -218,7 +218,7 @@ span.subscript{
     padding: 0 5% 70px;
     background-color: rgb(6, 2, 39);
     color: white;
-    height: 78vh;
+    /* height: 78vh; */
 
 }
 .prints h3{
