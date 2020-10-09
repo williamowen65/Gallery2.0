@@ -24,6 +24,7 @@
         text-align: center;
         flex-grow: 1;
         min-width: 190px;
+        transform: translateY(10px);
     }
     .bethOwen{
         margin: 5px 0 0;
@@ -44,7 +45,7 @@
        display: inline-block;
        text-align: center;
        padding-top: 5px;
-       font-size: 20px;
+       font-size: 25px;
        min-width: 500px;
        max-width: 1300px;
        flex-grow: 2;
@@ -68,9 +69,10 @@
     .contact{
         display: inline-block;
         text-align: center;
-        padding-top: 25px;
+        padding-top: 33px;
         margin-bottom: 0;
         flex-grow: 1;
+        font-size: 23px;
     }
     div a{
         color: tan;

@@ -103,6 +103,24 @@ i{
 
 
 
+/* ABOUT ME */
+.aboutMeContainer{
+    width: 100%;
+    position: fixed;
+    top:5%;
+    
+}
+.aboutMe{
+    
+    margin: 30px 40px;
+    min-width: 80vw;
+    height: 67vh;
+    background-color: cornflowerblue;
+
+}
+
+
+
   /*   // Origional Options (after click original btn) //     */
 
 .originals{

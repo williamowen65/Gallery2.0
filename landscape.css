@@ -31,7 +31,7 @@ justify-content: space-between;
 .logo{
 display: inline-block;
 text-align: center;
-transform: translate(30px,-10px);
+transform: translate(20px,-7px);
 
 }
 .bethOwen{
@@ -58,7 +58,7 @@ text-align: center;
 padding-top: 0px;
 /* position: relative; */
 justify-items: center;
-transform: translateY(-8px);
+transform: translateY(-3px);
 font-size: 20px;
 } 
 ul{
