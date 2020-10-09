@@ -45,11 +45,12 @@ aboutMeContainer.addEventListener('click', e => {
     // console.log(e.target.classList);
     if(e.target.classList[0] === 'aboutMeContainer'){
         aboutMeContainer.classList.toggle('hidden');
+        blurs.forEach(thing => {
+            console.log(thing);
+                thing.setAttribute('style', 'filter: blur(0px);')
+        });
     };
-    blurs.forEach(thing => {
-        console.log(thing);
-            thing.setAttribute('style', 'filter: blur(0px);')
-    });
+    
 });
 
 
