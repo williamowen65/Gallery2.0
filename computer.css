@@ -54,7 +54,7 @@
         list-style-type: none;
         padding-inline-start: 0;
         background-color: rgb(6, 2, 39);
-        display: inline-block;
+       
         width: 100%;
     }
     li{
@@ -290,7 +290,7 @@ footer{
                 text-align: center;
                 flex-grow: 1;
                 min-width: 150px;
-                transform: translate(10px,12px);
+                transform: translate(10px,0px);
             }
             .bethOwen{
                 margin: 5px 0 0;
@@ -312,7 +312,6 @@ footer{
                text-align: center;
                padding-top: 5px;
                font-size: 20px;
-               min-width: 500px;
                max-width: 1300px;
                flex-grow: 2;
             } 
@@ -320,9 +319,11 @@ footer{
                 list-style-type: none;
                 padding-inline-start: 0;
                 background-color: rgb(6, 2, 39);
-                display: inline-block;
+                display: flex;
+                justify-content: space-between;
                 width: 70%;
-                transform: translate(-50px,10px);
+                transform: translate(50px,0px);
+            
             }
             li{
                display: inline-block; 
@@ -336,11 +337,11 @@ footer{
             .contact{
                 display: inline-block;
                 text-align: center;
-                padding-top: 33px;
+                padding-top: 24px;
                 margin-bottom: 0;
                 flex-grow: 1;
                 font-size: 23px;
-                transform: translateX(-90px);
+                transform: translate(-10px,-2px);
 
             }
             div a{

@@ -125,6 +125,9 @@ i:hover{
     transform: translateX(-50%);
     
 }
+.aboutMeContainer:hover{
+    cursor: pointer;
+}
 .aboutMe{
     border-radius: 15px;
     max-width: 543px;
@@ -137,6 +140,9 @@ i:hover{
     border: 1px solid rgba(0, 0, 0, 0.411);
     background-color: rgba(100, 148, 237, 0.719);
     text-align: center;
+}
+.aboutMe:hover{
+    cursor: default;
 }
 .aboutMe img{
     border-radius: 30%;
