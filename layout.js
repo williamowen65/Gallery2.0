@@ -25,16 +25,31 @@ const hamburger = document.querySelector('.hamburger');
 const mobileNav = document.querySelector('.mobile-nav');
 const hiddenElements = document.querySelectorAll('.hide');
 const footer = document.querySelector('footer');
-const BethOwenBTN = document.querySelector('.logo');
+const BethOwenBTN = document.querySelector('.bethOwen');
 const aboutMeContainer = document.querySelector('.aboutMeContainer');
+
+const blurs = document.querySelectorAll('.blur');
+
+
+
+
 
 BethOwenBTN.addEventListener('click', () => {
     aboutMeContainer.classList.toggle('hidden');
+    blurs.forEach(thing => {
+        console.log(thing);
+            thing.setAttribute('style', 'filter: blur(2px);')
+    });
 });
 aboutMeContainer.addEventListener('click', e => {
-    if(e.target.classList == 'aboutMeContainer'){
+    // console.log(e.target.classList);
+    if(e.target.classList[0] === 'aboutMeContainer'){
         aboutMeContainer.classList.toggle('hidden');
     };
+    blurs.forEach(thing => {
+        console.log(thing);
+            thing.setAttribute('style', 'filter: blur(0px);')
+    });
 });
 
 

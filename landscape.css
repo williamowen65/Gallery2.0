@@ -132,7 +132,7 @@ background-color: rgb(6, 2, 39);
 .aboutMe{
     border-radius: 15px;
     max-width: 543px;
-    min-width: 305px;
+    min-width: 506px;
     /* height: 67vh; */
     width:80%;
     height: 270px;
@@ -170,7 +170,8 @@ p.aboutMeText{
 p.aboutMeInfo{
     text-align: center;
     position: absolute;
-    right: 200px;
+    right: 50%;
+    transform: translateX(50%);
     bottom: 5px;
 }
 
