@@ -7,7 +7,7 @@
         top:1px;
         }
 }
-@media only screen and (max-height: 412px) and (min-width: 600px){
+@media only screen and (max-height: 412px) and (min-width: 531px){
     
     
     /*   //   Opening Section    //     */
@@ -25,11 +25,13 @@ background-position: center;
 header{
 grid-column: 1/-1;
 color: tan;
+display: flex;
+justify-content: space-between;
 }
 .logo{
-display: block;
+display: inline-block;
 text-align: center;
-transform: translateY(-10px);
+transform: translate(30px,-10px);
 
 }
 .bethOwen{
@@ -38,7 +40,7 @@ font-size: 20px;
 }
 .watercolor{
 margin-top: 0;
-
+font-size: 14px;
 }
 .mobile-nav{
 color: tan;
@@ -48,14 +50,15 @@ position: relative;
 top: -15px;
 /* left: 25%; */
 }
+
 nav{
 min-width: 200px;
 max-width: 50%;
 text-align: center;
 padding-top: 0px;
-position: relative;
-left: 25%;
-transform: translateY(-5px);
+/* position: relative; */
+justify-items: center;
+transform: translateY(-8px);
 font-size: 20px;
 } 
 ul{
@@ -75,14 +78,13 @@ color: inherit;
 padding: 0 15px;
 }
 .contact{
-
 text-align: center;
 padding-bottom: 15px;
 padding-top: 32px;
 margin-bottom: 0;
-transform: translate(-160px,-17px);
+transform: translate(-20px,-17px);
 position: relative;
-left: 25%;
+/* left: 25%; */
 }
 div a{
 color: tan;
@@ -97,7 +99,13 @@ color: tan;
 font-size: 20px;
 }
 
-
+i::before, i a{
+    display: none;
+ }
+ .hideOnMobile {
+    display: inline-block;
+}
+ 
 
 /*   // SPACER  //     */
 
