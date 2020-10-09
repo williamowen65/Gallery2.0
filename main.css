@@ -105,18 +105,44 @@ i{
 
 /* ABOUT ME */
 .aboutMeContainer{
-    width: 100%;
+    width: auto;
     position: fixed;
     top:5%;
-    
+    left: 50%;
+    width: 100%;
+    border-radius: 15px;
+    z-index: 3;
+    transform: translateX(-50%);
+   
 }
 .aboutMe{
-    
-    margin: 30px 40px;
-    min-width: 80vw;
-    height: 67vh;
-    background-color: cornflowerblue;
-
+    border-radius: 15px;
+    max-width: 543px;
+    min-width: 305px;
+    /* height: 67vh; */
+    width:80%;
+    margin: auto;
+    padding-bottom: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.411);
+    background-color: rgba(100, 148, 237, 0.911);
+    text-align: center;
+}
+.aboutMe img{
+    border-radius: 30%;
+    max-width: 240px;
+    position: relative;
+    margin: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.404);
+}
+.aboutMe p{
+    font-size: 25px;
+    padding: 0px 35px;
+    text-align: justify;
+    text-indent: 40px;
+    font-family: 'Sansita Swashed', cursive;
+}
+p.aboutMeInfo{
+    text-align: center;
 }
 
 
@@ -343,3 +369,50 @@ p.ad{
         display: none;
     }
 }
+
+  @media only screen and (max-width:450px){
+      
+
+/* ABOUT ME */
+.aboutMeContainer{
+    width: auto;
+    position: fixed;
+    top:5%;
+    left: 50%;
+    width: 100%;
+    border-radius: 15px;
+    z-index: 3;
+    transform: translateX(-50%);
+   
+}
+.aboutMe{
+    border-radius: 15px;
+    max-width: 543px;
+    min-width: 305px;
+    /* height: 67vh; */
+    width:80%;
+    margin: auto;
+    padding-bottom: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.411);
+    background-color: rgba(100, 148, 237, 0.911);
+    text-align: center;
+}
+.aboutMe img{
+    border-radius: 30%;
+    max-width: 240px;
+    position: relative;
+    margin: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.404);
+}
+.aboutMe p{
+    font-size: 19px;
+    padding: 0px 35px;
+    text-align: justify;
+    text-indent: 40px;
+    font-family: 'Sansita Swashed', cursive;
+}
+p.aboutMeInfo{
+    text-align: center;
+}
+
+  }
