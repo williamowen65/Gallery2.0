@@ -214,6 +214,9 @@ span.subscript{
 .originals img:active{
     filter: grayscale(1);
 }
+body > div.originals.hide.blur > div.places-things-O > a > p{
+    color: white;
+}
 
 
   /*   // Print Options (after click Prints btn) //     */
