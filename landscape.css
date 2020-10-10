@@ -65,9 +65,11 @@ ul{
 list-style-type: none;
 padding-inline-start: 0;
 background-color: rgb(6, 2, 39);
-min-width: 500px;
-transform: translate(-80px,-3px);
+min-width: 250px;
+transform: translate(30px,-3px);
 z-index: -1;
+display: flex;
+justify-content: space-between
 }
 li{
 display: inline-block;
