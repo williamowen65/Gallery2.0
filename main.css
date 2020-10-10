@@ -215,6 +215,7 @@ span.subscript{
     filter: grayscale(1);
 }
 
+
   /*   // Print Options (after click Prints btn) //     */
   .prints{
     display: grid;
