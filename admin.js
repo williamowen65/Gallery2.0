@@ -58,8 +58,9 @@ const defaultImg = document.querySelector('.default');
             allSlideImgs.forEach(item => {
                 const id = item.getAttribute('data-id');
                 const src = item.firstElementChild.getAttribute('src');
-                const total = item.getAttribute('total');
-                console.log(id, src, total);
+                const totalproxy = item.getAttribute('total');
+                const total = Number(totalproxy);
+                console.log(id, src, typeof(total));
                 db.collection('images').doc(id).update({
                     "header": true,
                     "src": src,
