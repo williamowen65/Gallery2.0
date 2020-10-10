@@ -267,12 +267,18 @@ footer{
  
        
 }
-
+@media only screen and (max-width: 500px){
+#header-container{
+        
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 85vh 15vh;
+}
+}
 @media only screen and (min-width: 501px){
 
 
               /*   //   Opening Section    //     */
-    
+            
              
              .header-img{
                 grid-column: 1/-1;

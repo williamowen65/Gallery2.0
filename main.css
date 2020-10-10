@@ -9,7 +9,7 @@ html,body{
 #header-container{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 85vh 15vh;
+    grid-template-rows: 90vh 10vh;
 }
 .header-img{
     grid-column: 1/-1;
