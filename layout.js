@@ -229,9 +229,9 @@ originalsBTN.addEventListener('click', () => {
     animalsPeopleObtn.classList.remove('hidden');
     placesThingsObtn.classList.remove('hidden');
 
-    if(footer.classList[0] === 'hidden'){
+    // if(footer.classList[0] === 'hidden'){
         footer.classList.remove('hidden');
-    }
+    // }
 
 });
 
@@ -254,9 +254,9 @@ printsBTN.addEventListener('click', () => {
     animalsPeoplePbtn.classList.remove('hidden');
     placesThingsPbtn.classList.remove('hidden');
 
-    if(footer.classList[0] === 'hidden'){
+    // if(footer.classList[0] === 'hidden'){
         footer.classList.remove('hidden');
-    }
+    // }
 
 });
 
