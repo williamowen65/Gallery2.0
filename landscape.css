@@ -31,8 +31,8 @@ justify-content: space-between;
 .logo{
 display: inline-block;
 text-align: center;
-transform: translate(20px,-7px);
-z-index: 1;
+transform: translate(0px,-9px);
+height: 55px
 }
 .bethOwen{
 margin: 15px 0 0;
@@ -92,6 +92,7 @@ position: relative;
 font-size: 15px;
 /* left: 25%; */
 }
+
 div a{
 color: tan;
 text-decoration: none;
@@ -110,6 +111,21 @@ i::before, i a{
  }
  .hideOnMobile {
     display: inline-block;
+    max-width: 320px;
+    max-height: 25px;
+    text-align: center;
+    margin-right: 0px;
+    padding-bottom: 0;
+    flex-grow: 1;
+    font-size: 21px;
+    transform: translate(-10px,-5px);
+}
+.hideOnMobile .printsBTN{
+    transform: translateX(14px);
+}
+.hideOnMobile.contact{
+    transform: translate(80px, -15px);
+    font-size: 17px;
 }
  
 
@@ -123,17 +139,28 @@ background-color: rgb(6, 2, 39);
 
 
 
-/* ABOUT ME */
-.aboutMeContainer{
+/* ABOUT ME, CONTACT */
+.aboutMeContainer, .contactContainer{
     width: auto;
     position: fixed;
-    top:5%;
+    top:0;
     left: 50%;
     width: 100%;
+    height: 100%;
     border-radius: 15px;
     z-index: 3;
     transform: translateX(-50%);
    
+}
+.contactInfo{
+    position: relative;
+    top: 3%;
+    /* transform: translateY(50%); */
+    padding: 20px 5px 30px;
+    font-size: 20px;
+    line-height: 30px;
+    background-color: rgba(100, 148, 237, 0.925);
+    max-width: 350px;
 }
 .aboutMe{
     border-radius: 15px;
@@ -143,6 +170,7 @@ background-color: rgb(6, 2, 39);
     width:80%;
     height: 270px;
     margin: auto;
+    margin-top: 10px;
     padding-bottom: 30px;
     border: 1px solid rgba(0, 0, 0, 0.411);
     background-color: rgba(100, 148, 237, 0.911);
@@ -180,6 +208,7 @@ p.aboutMeInfo{
     top: 250px;
     transform: translate(50%, 0px);
     bottom: 5px;
+    max-height: 20px;
 }
 
 

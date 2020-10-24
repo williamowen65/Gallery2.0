@@ -1,4 +1,3 @@
-const contact = document.querySelector('.contact');
 const spacer = document.querySelector('.spacer');
 const hidden = document.querySelectorAll('.hidden');
 const homeBTN = document.querySelector('.homeBTN');
@@ -27,7 +26,9 @@ const hiddenElements = document.querySelectorAll('.hide');
 const footer = document.querySelector('footer');
 const BethOwenBTN = document.querySelector('.bethOwen');
 const aboutMeContainer = document.querySelector('.aboutMeContainer');
-
+const contactContainer = document.querySelector('.contactContainer');
+const contactInfo = document.querySelector('.contactInfo');
+const contactBTN = document.querySelectorAll('.contact');
 const blurs = document.querySelectorAll('.blur');
 
 
@@ -50,7 +51,27 @@ aboutMeContainer.addEventListener('click', e => {
                 thing.setAttribute('style', 'filter: blur(0px);')
         });
     };
-    
+});
+
+console.log(contactBTN);
+contactBTN.forEach(btn => {  
+    btn.addEventListener('click', () => {
+        contactContainer.classList.toggle('hidden');
+        blurs.forEach(thing => {
+            console.log(thing);
+                thing.setAttribute('style', 'filter: blur(2px);')
+        });
+    });
+    contactContainer.addEventListener('click', e => {
+        console.log(e.target.classList);
+        if(e.target.classList[0] === 'contactContainer'){
+            contactContainer.classList.add('hidden');
+            blurs.forEach(thing => {
+                console.log(thing);
+                    thing.setAttribute('style', 'filter: blur(0px);')
+            });
+        };
+    });
 });
 
 
