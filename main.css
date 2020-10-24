@@ -98,7 +98,7 @@ li a{
     padding-bottom: 0;
     flex-grow: 1;
     font-size: 23px;
-    transform: translate(-10px,-2px);
+    transform: translate(-10px,20px);
 }
 div a{
     color: tan;
@@ -347,11 +347,16 @@ body > div.originals.hide.blur > div.places-things-O > a > p{
 /* footer */
 footer{
     text-align: center;
-    color:rgb(33, 22, 139);
+    color: rgb(22, 100, 172);
+
    font-size: 16px;
     margin-bottom: 25px;
 }
 footer a{
+    color: rgb(80, 24, 133);
+    text-decoration: none;
+}
+footer a:hover{
     color: rgb(22, 100, 172);
     text-decoration: none;
 }

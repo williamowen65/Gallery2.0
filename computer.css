@@ -69,10 +69,10 @@
     .contact{
         display: inline-block;
         text-align: center;
-        padding-top: 33px;
+        /* padding-top: 33px; */
         margin-bottom: 0;
         flex-grow: 1;
-        font-size: 23px;
+        
     }
     div a{
         color: tan;
@@ -343,7 +343,7 @@ footer{
                 text-decoration: none;
                 color: inherit;
             }
-            .contact{
+            .hideOnMobile .contact{
                 display: inline-block;
                 text-align: center;
                 padding-top: 24px;
