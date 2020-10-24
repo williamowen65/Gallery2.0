@@ -473,7 +473,7 @@ const addImage = (image) => {
             <p class="title">${image.title}</p>
             <p class="dimensions">${image.dimensions}</p>
             <p class="price">${image.price}</p>
-            test github
+            
         </span>
     </div>
     `;
