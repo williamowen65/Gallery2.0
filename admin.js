@@ -258,7 +258,7 @@ const headerImgs = (doc) => {
  /* Change Default Image */
  const changeImageBTN = document.querySelector('.change');
  const changeImageDIV = document.querySelector('.changeImage');
- console.log(changeImageDIV);
+//  console.log(changeImageDIV);
  
  changeImageBTN.addEventListener('click', e => {
     e.stopImmediatePropagation();
@@ -297,6 +297,7 @@ const addImage = (image, id) => {
             <p class="title">${image.title}</p>
             <p class="dimensions">${image.dimensions}</p>
             <p class="divClass"> ${image.divClass}</p>
+            <p class="price">${image.price}</p>
         </span>
     </div>
     `;
@@ -374,6 +375,7 @@ db.collection('images').onSnapshot(snapshot => {
             const docSrc = doc.data().src;
             const docId = doc.id;
             const docPosition = doc.data().divClass;
+            const docPrice = doc.data().price;
             
 
 
@@ -386,6 +388,7 @@ db.collection('images').onSnapshot(snapshot => {
                 image.children[1].children[0].innerText = docTitle;
                 image.children[1].children[1].innerText = docDimensions;
                 image.children[1].children[2].innerText = docPosition;
+                image.children[1].children[3].innerText = docPrice;
 
          //         const currentCat = image.parentElement.classList[0];
         //         if(currentCat !== docCategory){
@@ -544,7 +547,7 @@ db.collection('images').onSnapshot(snapshot => {
 const allIMG = document.querySelector('.grid');
 
 allIMG.addEventListener('dblclick', e => {
-    // console.log(e.target.parentElement);
+    console.log(e);
     
 
 
@@ -552,15 +555,17 @@ allIMG.addEventListener('dblclick', e => {
     const id = e.target.parentElement.getAttribute('data-id');
     const title = e.target.nextElementSibling.firstElementChild.innerText;
     const dimensions = e.target.nextElementSibling.firstElementChild.nextElementSibling.innerText;
-    const position = e.target.nextElementSibling.lastElementChild.innerText;
-    // console.log(dimensions, e);
+    const position = e.target.nextElementSibling.parentNode.className;
+    const price = e.target.nextElementSibling.lastElementChild.innerText;
+    console.log(position, price);
+    
     const editForm = document.querySelector('.editor');
     const backdrop = document.querySelector('.backdrop');
 
    
     if(backdrop.getAttribute('style') === "display: none;"){
         
-
+ 
 
     let html = ` <p class="exit">X</p>
     <img src="${image}" class="demo" data-id="${id}">
@@ -577,9 +582,15 @@ allIMG.addEventListener('dblclick', e => {
         <input name="newDimensions" type="text" id="newDimensions" value='${dimensions}' required><br>
        <small> NOTE: Use <code>&lt;br&gt;</code> between sets of sizes (inserting a break)</small>
     </div>
+    
+    <div class="newPrice">
+        <label for="newPrice"> price: </label>
+        <input name="newPrice" type="text" id="newPrice" value="${price}">
+    </div>  
+    
     <div class="newInfo">
-    <label for="newPosition"> position: </label>
-    <input name="newPosition" type="text" id="newPosition" value="${position}">
+        <label for="newPosition"> position: </label>
+        <input name="newPosition" type="text" id="newPosition" value="${position}">
     </div>
     <div class="newInfo">
         <label for="newCategory"> category: </label>
@@ -642,6 +653,7 @@ formPopup.addEventListener('submit', e => {
     const dimensionsPop = formPopup.newDimensions.value;
     // const categoryPop = formPopup.newCategory.value;
     let positionPop = formPopup.newPosition.value;
+    let pricePop = formPopup.newPrice.value;
     let copyPositionPop = positionPop.split('');
     copyPositionPop.splice(0,4);
     const goldenNumber = copyPositionPop.join('');
@@ -667,7 +679,8 @@ formPopup.addEventListener('submit', e => {
         "dimensions": dimensionsPop,
         // "category": categoryPop,
         "divClass": positionPop,
-        "spanClass": spanClass
+        "spanClass": spanClass,
+        "price": pricePop
     });
 
     const editForm = document.querySelector('.editor');

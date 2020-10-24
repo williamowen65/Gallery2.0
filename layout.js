@@ -472,6 +472,7 @@ const addImage = (image) => {
         <span class="${image.spanClass}">
             <p class="title">${image.title}</p>
             <p class="dimensions">${image.dimensions}</p>
+            <p class="price">${image.price}</p>
         </span>
     </div>
     `;
