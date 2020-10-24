@@ -699,7 +699,3 @@ const addSlideFunction = () => {
     const addSlidePop = document.querySelector('.addSlidePop');
     addSlidePop.classList.toggle('hide');
 };
-
-
-
-

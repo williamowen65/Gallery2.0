@@ -496,3 +496,34 @@ db.collection('images').get().then((snapshot) => {
 }).catch(err => {
     console.log(err);
 });
+
+
+
+class Tooltip {
+    constructor(element){
+        this.element = element;
+        this.message = element.getAttribute('data-message');
+    }
+    init(){
+        const tip = document.createElement('div');
+        tip.classList.add('tip');
+        tip.textContent = this.message;
+        this.element.appendChild(tip);
+        //inside init
+        //set listeners
+        this.element.addEventListener('mouseenter', () => {
+            tip.classList.add('active');
+        });
+        this.element.addEventListener('mouseleave', () => {
+            tip.classList.remove('active');
+        });
+    }
+};
+
+
+
+
+const tooltip = new Tooltip(document.querySelector('.tooltip'));
+console.log(tooltip);
+
+tooltip.init();

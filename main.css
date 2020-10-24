@@ -78,11 +78,26 @@ li a{
     text-decoration: none;
     color: inherit;
 }
-.contact{
+
+.mobile-nav .contact{
     display: block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 20px;
+    width: 55px;
+}
+.hideOnMobile.contact{
+    display: inline-block;
+    max-width: 80px;
+    max-height: 25px;
     text-align: center;
-    padding-bottom: 20px;
-    margin-bottom: 0;
+    margin-right: 100px;
+    
+    padding-bottom: 0;
+    flex-grow: 1;
+    font-size: 23px;
+    transform: translate(-10px,-2px);
 }
 div a{
     color: tan;
@@ -112,8 +127,9 @@ i:hover{
 
 
 
-/* ABOUT ME */
-.aboutMeContainer{
+/* ABOUT ME, CONTACT */
+
+.aboutMeContainer, .contactContainer{
     width: auto;
     position: fixed;
     top:0;
@@ -123,12 +139,12 @@ i:hover{
     border-radius: 15px;
     z-index: 3;
     transform: translateX(-50%);
-    
 }
-.aboutMeContainer:hover{
+
+.aboutMeContainer:hover, .contactContainer:hover{
     cursor: pointer;
 }
-.aboutMe{
+.aboutMe, .contactInfo{
     border-radius: 15px;
     max-width: 543px;
     min-width: 305px;
@@ -141,7 +157,28 @@ i:hover{
     background-color: rgba(100, 148, 237, 0.877);
     text-align: center;
 }
-.aboutMe:hover{
+.contact:hover{
+    cursor: pointer;
+}
+.contactInfo{
+    position: relative;
+    top: 25%;
+    /* transform: translateY(50%); */
+    padding: 20px 5px 30px;
+    font-size: 20px;
+    line-height: 30px;
+    background-color: rgba(100, 148, 237, 0.925);
+    max-width: 350px;
+}
+
+.contactInfo p:first-child{
+    text-transform: uppercase;
+}
+.contactInfo span:hover{
+ cursor: pointer;
+ color: white;
+}
+.aboutMe:hover, .contactInfo:hover{
     cursor: default;
 }
 .aboutMe img{
@@ -383,7 +420,11 @@ p.ad{
 
 /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-@media only screen and (max-width: 801px){
+@media only screen and (max-width: 501px){
+    
+    .hideOnMobile.contact{
+        display: none;
+    }
     .hideOnMobile{
         display: none;
     }
@@ -442,3 +483,39 @@ p.aboutMeInfo{
 }
 
   }
+
+
+
+/* TOOOL TIP IN CONTACT SECTION */
+.tip{ /* the element we create */
+    visibility: hidden;
+    width: 150px;
+    background-color: #ff6565;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    padding: 5px 10px;
+    position: absolute; /*absolutely relative to tooltip*/
+    bottom: 10px; /*appears above the text*/
+    left: 50%;
+    margin-left: -75px; /*half the width*/
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.tip.active{
+    visibility: visible;
+    opacity: 1;
+}
+.tip::after{ /*pseduo class, content after .tip, 
+    we use this to add a little  triangle at the bottom of the tool tip message*/
+    content: "";
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: rotate(180deg);
+    margin-left: -4px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: transparent;
+    border-top-color: #ff6565;
+}
