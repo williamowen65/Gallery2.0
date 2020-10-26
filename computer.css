@@ -305,6 +305,7 @@ footer{
                 margin: 5px 0 0;
                 display: inline-block;
                 font-size: 28px;
+                min-width: 133px;
             }
             nav.hideOnMobile{
                 display: inline-block;
