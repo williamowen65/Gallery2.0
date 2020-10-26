@@ -6,8 +6,11 @@
         position: relative;
         top:1px;
         }
+        
 }
-@media only screen and (max-height: 412px) and (min-width: 531px){
+
+}
+@media only screen and (max-height: 412px) {
     
     
     /*   //   Opening Section    //     */
@@ -32,8 +35,10 @@ justify-content: space-between;
 display: inline-block;
 text-align: center;
 transform: translate(0px,-9px);
-height: 55px
+height: 55px;
+max-width: fit-content;
 }
+
 .bethOwen{
 margin: 15px 0 0;
 font-size: 20px;
