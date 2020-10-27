@@ -200,7 +200,14 @@ p.aboutMeInfo{
     text-align: center;
     font-size: 19px;
 }
-
+.contactInfo hr{
+    width: 100px;
+    color: black;
+}
+p.websiteAD{
+    font-size: 15px;
+    line-height: 18px;
+}
 
 
   /*   // Origional Options (after click original btn) //     */
@@ -506,6 +513,8 @@ p.aboutMeInfo{
     margin-left: -75px; /*half the width*/
     opacity: 0;
     transition: opacity 0.3s;
+    font-size: 15px;
+    line-height: 18px;
 }
 .tip.active{
     visibility: visible;

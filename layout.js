@@ -548,4 +548,8 @@ class Tooltip {
 const tooltip = new Tooltip(document.querySelector('.tooltip'));
 console.log(tooltip);
 
+const tooltip2 = new Tooltip(document.querySelector('.tooltip2'));
+console.log(tooltip2);
+
 tooltip.init();
+tooltip2.init();
